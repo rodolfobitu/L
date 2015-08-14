@@ -1,0 +1,37 @@
+--Modelagem--
+
+Software em executivo cíclico cooperativo ou não
+
+Auto-teste das funcionalidade da eletrônica (aquisição de dados dos sensores com ADC)
+
+--Montagem eletrônica--
+
+Criar software para auto-teste de motores.
+
+--Integração com a plataforma mecânica--
+
+Detectar a posição da linha atravez dos sensores IR
+
+ - Sensores utilizam o ADC
+
+ - Calibrar Sensores - Descobrir o offset de cada sensor e ajustar a valor lido para que a saida de todos os sensores seja na mesma faixa.
+
+ - Fazer o algo. do splines para saber a posição da linha
+
+--Detector de posição de linha--
+
+Fazer o controle dos motores
+
+ - O sinal de PWM deverá ser gerado utilizando um PID a partir do sinal de erro da velocidade.
+
+ - Utilizar os "encoder" para medir velocidade dos motores
+
+ - Atuar nos motores com os PWM
+
+--Controlador digital--
+
+Seguir linha dada uma velocidade de referencia
+
+ - Motores devem receber sinal de correção somanda com a velocidade de referência. (PI)
+
+ - O sinal de correção de posição deverá ser gerado por um PI a partir do sinal de erro de posição.

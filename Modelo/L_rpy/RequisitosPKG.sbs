@@ -1,0 +1,179 @@
+I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
+{ ISubsystem 
+	- _id = GUID 17add19b-97c5-4df4-8f43-59f8e104953b;
+	- _myState = 8192;
+	- _name = "RequisitosPKG";
+	- _objectCreation = "1016225145020152021553810";
+	- _umlDependencyID = "2923";
+	- Annotations = { IRPYRawContainer 
+		- size = 11;
+		- value = 
+		{ IRequirement 
+			- _id = GUID 556bfa1d-8681-46c4-b94a-40015c804034;
+			- _name = "R1";
+			- _objectCreation = "1016227145020152021551810";
+			- _umlDependencyID = "1748";
+			- Annotations = { IRPYRawContainer 
+				- size = 0;
+			}
+			- _description = { IDescription 
+				- _textRTF = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1046{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}
+\\viewkind4\\uc1\\pard\\fs20 R1: Montar executivo c\\'edclico cooperativo\\par
+}
+";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID 8ab28847-c904-42a8-be01-f9a42e8ef33d;
+			- _name = "R2";
+			- _objectCreation = "1016229145020152021549810";
+			- _umlDependencyID = "1758";
+			- _description = { IDescription 
+				- _text = "R2: Fazer software de auto-teste das funcionalidades dos sensores ADC";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID 7596df2d-95f6-4acd-8f1a-8f8044b4f692;
+			- _name = "R3";
+			- _objectCreation = "1016231145020152021547810";
+			- _umlDependencyID = "1750";
+			- _description = { IDescription 
+				- _text = "R3: Fazer software de auto-teste para os motores";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID ecadc152-43f5-4f5f-aee2-ebb97033eb3d;
+			- _name = "R4a";
+			- _objectCreation = "1016233145020152021545810";
+			- _umlDependencyID = "1848";
+			- _description = { IDescription 
+				- _text = "R4a: Utilizar o ADC para fazer leitura dos sensores";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID 1b3f28b7-c544-4d64-b190-15f8f03d0849;
+			- _name = "R4b";
+			- _objectCreation = "1016235145020152021543810";
+			- _umlDependencyID = "1849";
+			- _description = { IDescription 
+				- _textRTF = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1046{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}
+\\viewkind4\\uc1\\pard\\fs20 R4b: Fazer fun\\'e7\\'e3o de normaliza\\'e7\\'e3o  dos sinais digitais lidas pelos sensores\\par
+}
+";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID d8a7f5ea-0eee-4e98-8538-1217e6ffc527;
+			- _name = "R4c";
+			- _objectCreation = "1016237145020152021541810";
+			- _umlDependencyID = "1850";
+			- _description = { IDescription 
+				- _textRTF = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1046{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}
+\\viewkind4\\uc1\\pard\\fs20 R4c: Fazer algor\\'edtmo de splines para obter posi\\'e7\\'e3o da linha a partir das leituras dos sensores\\par
+}
+";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID 3a5e3be5-f873-48f1-973b-50a14e4fe020;
+			- _name = "R5a";
+			- _objectCreation = "1016239145020152021539810";
+			- _umlDependencyID = "1858";
+			- _description = { IDescription 
+				- _text = "R5a: Utilizar o \"encoder\" para medir velocidade dos motores.";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID 11234076-4b60-4eb5-8d55-5b0f2469b0f7;
+			- _name = "R5b";
+			- _objectCreation = "1016241145020152021537810";
+			- _umlDependencyID = "1850";
+			- _description = { IDescription 
+				- _textRTF = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1046{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}
+\\viewkind4\\uc1\\pard\\fs20 R5b: O sinal de PWM devr\\'e1 ser gerado utilizando um PID a partir do sinal de error da velocidade\\par
+}
+";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID 625035c6-b8cb-4393-8150-8c439f95ef19;
+			- _name = "R5c";
+			- _objectCreation = "1016243145020152021535810";
+			- _umlDependencyID = "1851";
+			- _description = { IDescription 
+				- _textRTF = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1046{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}
+\\viewkind4\\uc1\\pard\\fs20 R5c: Implementar o PWM para fazer a atua\\'e7\\'e3o nos motores\\par
+}
+";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID 3b81d61f-0ac3-4682-af07-e92581e0aaeb;
+			- _name = "R6a";
+			- _objectCreation = "1016245145020152021533810";
+			- _umlDependencyID = "1850";
+			- _description = { IDescription 
+				- _textRTF = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1046{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}
+\\viewkind4\\uc1\\pard\\fs20 R6a: Obter sinal de velocidade somando a velocidade de ref\\'eancia com a corre\\'e7\\'e3o de velocidade\\par
+}
+";
+			}
+			- _body = "";
+		}
+		{ IRequirement 
+			- _id = GUID 1a376cd2-d6a6-43f5-998e-5664150cf01e;
+			- _name = "R6b";
+			- _objectCreation = "1016247145020152021531810";
+			- _umlDependencyID = "1851";
+			- _description = { IDescription 
+				- _textRTF = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang1046{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}
+\\viewkind4\\uc1\\pard\\fs20 R6b: O sinal de corre\\'e7\\'e3o de velocidade dever\\'e1 ser gerado por um PI a partir do sinal de erro de posi\\'e7\\'e3o\\par
+}
+";
+			}
+			- _body = "";
+		}
+	}
+	- _theMainDiagram = { IHandle 
+		- _m2Class = "IDiagram";
+		- _filename = "";
+		- _subsystem = "";
+		- _class = "";
+		- _name = "Model1";
+		- _id = GUID da1307e5-60c9-4a8f-aeb8-e22cf2e3bb6c;
+	}
+	- _lastID = 11;
+	- weakCGTime = 8.14.2015::23:49:55;
+	- strongCGTime = 8.14.2015::23:47:47;
+	- _defaultComposite = GUID 969ef191-6726-4cee-a403-273b77fd63b2;
+	- _eventsBaseID = -1;
+	- Classes = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ IClass 
+			- _id = GUID 969ef191-6726-4cee-a403-273b77fd63b2;
+			- _myState = 40960;
+			- _name = "TopLevel";
+			- _objectCreation = "1016249145020152021529810";
+			- _umlDependencyID = "2437";
+			- weakCGTime = 12.31.1969::22:0:0;
+			- strongCGTime = 12.31.1969::22:0:0;
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+	}
+	- _configurationRelatedTime = 12.31.1969::22:0:0;
+}
+
