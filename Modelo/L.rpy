@@ -3,8 +3,8 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 	- _id = GUID d589d57d-f57b-4f70-b35b-cf156cf1ceeb;
 	- _myState = 8192;
 	- _name = "L";
-	- _objectCreation = "162684821152015318642816";
-	- _umlDependencyID = "1674";
+	- _objectCreation = "1231072212520151913759812";
+	- _umlDependencyID = "1711";
 	- _lastID = 14;
 	- _UserColors = { IRPYRawContainer 
 		- size = 16;
@@ -47,7 +47,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 		}
 	}
 	- Subsystems = { IRPYRawContainer 
-		- size = 13;
+		- size = 8;
 		- value = 
 		{ ISubsystem 
 			- fileName = "Default";
@@ -58,28 +58,12 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 			- _id = GUID 17add19b-97c5-4df4-8f43-59f8e104953b;
 		}
 		{ ISubsystem 
-			- fileName = "Adc";
-			- _id = GUID 4e48f159-95db-45fc-93e1-eb52ffa8a574;
-		}
-		{ ISubsystem 
 			- fileName = "ES770";
 			- _id = GUID a719ac8d-1468-4d24-9af1-6ea3915beef4;
 		}
 		{ ISubsystem 
-			- fileName = "Main";
-			- _id = GUID 97014e96-fef5-4d72-a0bf-e169ad6602da;
-		}
-		{ ISubsystem 
-			- fileName = "SensorBar";
-			- _id = GUID 71e10367-4efc-4e82-960e-9f02755cec47;
-		}
-		{ ISubsystem 
 			- fileName = "Calibrate";
 			- _id = GUID de1916b9-abbb-4a5b-ac4b-8d37ecc3815f;
-		}
-		{ ISubsystem 
-			- fileName = "SelfTest";
-			- _id = GUID eab1f781-5284-4f96-8edd-7271be1637c3;
 		}
 		{ ISubsystem 
 			- fileName = "Pwm";
@@ -88,10 +72,6 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 		{ ISubsystem 
 			- fileName = "Encoder";
 			- _id = GUID 68038364-716f-447b-98ff-da4c40d2d83e;
-		}
-		{ ISubsystem 
-			- fileName = "Motor";
-			- _id = GUID ff7b1e3e-7cc3-4f55-9636-78da1b858107;
 		}
 		{ ISubsystem 
 			- fileName = "VelocityCorrection";
@@ -206,8 +186,8 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 			}
 			- _name = "Diagrama de Requisitos";
-			- _objectCreation = "162685021152015318640816";
-			- _umlDependencyID = "3660";
+			- _objectCreation = "1231074212520151913757812";
+			- _umlDependencyID = "3706";
 			- _lastID = 1;
 			- _lastModifiedTime = "8.21.2015::4:4:4";
 			- _graphicChart = { CGIClassChart 
@@ -1283,9 +1263,9 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 			}
 			- _name = "Diagrama de defini\ç\ão de blocos";
-			- _objectCreation = "162685221152015318638816";
-			- _umlDependencyID = "4166";
-			- _lastModifiedTime = "8.21.2015::6:13:49";
+			- _objectCreation = "1231076212520151913755812";
+			- _umlDependencyID = "4203";
+			- _lastModifiedTime = "8.21.2015::22:25:6";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID 4466841c-19fb-416a-ac33-f8dcae28233e;
 				- m_type = 0;
@@ -1366,7 +1346,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IClass";
 						- _filename = "SensorBar.sbs";
-						- _subsystem = "SensorBar";
+						- _subsystem = "Calibrate::SensorBar";
 						- _class = "";
 						- _name = "SensorBar";
 						- _id = GUID 6d97aadf-77fb-4771-aa28-f411662c98d4;
@@ -1417,7 +1397,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "SensorBar.sbs";
-							- _subsystem = "SensorBar";
+							- _subsystem = "Calibrate::SensorBar";
 							- _class = "SensorBar";
 							- _name = "vSensorTask()";
 							- _id = GUID 90cc5a46-b09c-4201-a390-261b40464382;
@@ -1425,7 +1405,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "SensorBar.sbs";
-							- _subsystem = "SensorBar";
+							- _subsystem = "Calibrate::SensorBar";
 							- _class = "SensorBar";
 							- _name = "cSensorBarSpline(*char,char)";
 							- _id = GUID 6e0dc10e-32f8-49a1-9507-cccbd4a361fc;
@@ -1630,7 +1610,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IClass";
 						- _filename = "Motor.sbs";
-						- _subsystem = "Motor";
+						- _subsystem = "Pwm::Motor";
 						- _class = "";
 						- _name = "Motor";
 						- _id = GUID 562534d4-2a40-425c-b8de-21781bcc10bd;
@@ -1681,7 +1661,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "Motor.sbs";
-							- _subsystem = "Motor";
+							- _subsystem = "Pwm::Motor";
 							- _class = "Motor";
 							- _name = "vMotorTask()";
 							- _id = GUID 54d89192-32fa-4222-b4db-0bf2e2dc99ce;
@@ -1719,7 +1699,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Motor.sbs";
-						- _subsystem = "Motor";
+						- _subsystem = "Pwm::Motor";
 						- _class = "Motor";
 						- _name = "PID";
 						- _id = GUID 6c9f2051-44b3-4eb6-ac1d-7d2ec9bb87ce;
@@ -1762,7 +1742,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_anglePoint2 = 0 0 ;
 					- m_line_style = 0;
 					- m_SourcePort = 985 858 ;
-					- m_TargetPort = 183 1007 ;
+					- m_TargetPort = 1047 894 ;
 					- m_ShowName = 0;
 					- m_ShowStereotype = 1;
 				}
@@ -1913,7 +1893,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IClass";
 						- _filename = "Adc.sbs";
-						- _subsystem = "Adc";
+						- _subsystem = "ES770::Adc";
 						- _class = "";
 						- _name = "ADC";
 						- _id = GUID ba041dbb-0476-4ff5-b43b-4f55f264ad83;
@@ -1960,7 +1940,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IAttribute";
 							- _filename = "Adc.sbs";
-							- _subsystem = "Adc";
+							- _subsystem = "ES770::Adc";
 							- _class = "ADC";
 							- _name = "adcAdcCurrentAdc";
 							- _id = GUID 50da7754-1605-4098-b62f-9b22371009b9;
@@ -1972,7 +1952,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "Adc.sbs";
-							- _subsystem = "Adc";
+							- _subsystem = "ES770::Adc";
 							- _class = "ADC";
 							- _name = "adcAdcInstanciate(char,char,char,portId)";
 							- _id = GUID 69b09e8e-859c-4432-b9f2-99c1e22469fb;
@@ -1980,7 +1960,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "Adc.sbs";
-							- _subsystem = "Adc";
+							- _subsystem = "ES770::Adc";
 							- _class = "ADC";
 							- _name = "vAdcGetValue(adc,*char,site_t)";
 							- _id = GUID 52fb15d2-71ff-4667-bf6a-079185ec50e9;
@@ -1988,7 +1968,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "Adc.sbs";
-							- _subsystem = "Adc";
+							- _subsystem = "ES770::Adc";
 							- _class = "ADC";
 							- _name = "vAdcInit()";
 							- _id = GUID 83ab65e6-3bea-4c1c-8cb0-156541d4ca49;
@@ -1996,7 +1976,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "Adc.sbs";
-							- _subsystem = "Adc";
+							- _subsystem = "ES770::Adc";
 							- _class = "ADC";
 							- _name = "vAdcInterruption()";
 							- _id = GUID 61a6ba00-2b90-44c0-bc02-5721e1c14327;
@@ -2004,7 +1984,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "Adc.sbs";
-							- _subsystem = "Adc";
+							- _subsystem = "ES770::Adc";
 							- _class = "ADC";
 							- _name = "vAdcTask()";
 							- _id = GUID 3eb5b865-d244-429a-b1af-2a9af265f850;
@@ -2042,7 +2022,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Adc.sbs";
-						- _subsystem = "Adc";
+						- _subsystem = "ES770::Adc";
 						- _class = "ADC";
 						- _name = "SensorBar";
 						- _id = GUID 157aa2d8-ae6d-4a90-9026-7864f325d023;
@@ -2489,7 +2469,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Motor.sbs";
-						- _subsystem = "Motor";
+						- _subsystem = "Pwm::Motor";
 						- _class = "Motor";
 						- _name = "PWM";
 						- _id = GUID da6699c1-2c3b-4caa-be76-1937dfb560ae;
@@ -2532,7 +2512,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_anglePoint2 = 0 0 ;
 					- m_line_style = 0;
 					- m_SourcePort = 969 625 ;
-					- m_TargetPort = 156 856 ;
+					- m_TargetPort = 19 952 ;
 					- m_ShowName = 0;
 					- m_ShowStereotype = 1;
 				}
@@ -2567,7 +2547,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IClass";
 						- _filename = "SelfTest.sbs";
-						- _subsystem = "SelfTest";
+						- _subsystem = "Calibrate::SensorBar::SelfTest";
 						- _class = "";
 						- _name = "SelfTest";
 						- _id = GUID 1f2b8f16-76cd-4df3-b24a-2440a1d83722;
@@ -2617,7 +2597,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "SelfTest.sbs";
-							- _subsystem = "SelfTest";
+							- _subsystem = "Calibrate::SensorBar::SelfTest";
 							- _class = "SelfTest";
 							- _name = "vSelfTest()";
 							- _id = GUID 1945588b-55a8-44b9-87e4-d558fa026131;
@@ -2655,7 +2635,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "SelfTest.sbs";
-						- _subsystem = "SelfTest";
+						- _subsystem = "Calibrate::SensorBar::SelfTest";
 						- _class = "SelfTest";
 						- _name = "PWM";
 						- _id = GUID 907acfc9-cc90-4635-b576-97066c5005da;
@@ -2733,7 +2713,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "SelfTest.sbs";
-						- _subsystem = "SelfTest";
+						- _subsystem = "Calibrate::SensorBar::SelfTest";
 						- _class = "SelfTest";
 						- _name = "ADC";
 						- _id = GUID 87903468-c3f1-4aef-be40-faa2203a37c7;
@@ -2775,7 +2755,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_anglePoint1 = 0 0 ;
 					- m_anglePoint2 = 0 0 ;
 					- m_line_style = 0;
-					- m_SourcePort = 924 523 ;
+					- m_SourcePort = 653 1443 ;
 					- m_TargetPort = 921 587 ;
 					- m_ShowName = 0;
 					- m_ShowStereotype = 1;
@@ -2786,7 +2766,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IClass";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "";
 						- _name = "Main";
 						- _id = GUID fff3c873-da27-426a-80e1-007c81521709;
@@ -2836,7 +2816,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
 							- _filename = "Main.sbs";
-							- _subsystem = "Main";
+							- _subsystem = "ES770::Main";
 							- _class = "Main";
 							- _name = "main()";
 							- _id = GUID 099af860-d138-40c3-91de-e7bb75704156;
@@ -2874,7 +2854,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "Main";
 						- _name = "ES770";
 						- _id = GUID fc6123f7-25c5-494d-87bd-35156183aaf2;
@@ -2952,7 +2932,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "Main";
 						- _name = "Encoder";
 						- _id = GUID 3b74753d-ae9d-4b68-b537-2228e2fe8c40;
@@ -2994,7 +2974,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_anglePoint1 = 0 0 ;
 					- m_anglePoint2 = 0 0 ;
 					- m_line_style = 0;
-					- m_SourcePort = 913 1017 ;
+					- m_SourcePort = 124 371 ;
 					- m_TargetPort = 910 1114 ;
 					- m_ShowName = 0;
 					- m_ShowStereotype = 1;
@@ -3030,7 +3010,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "Main";
 						- _name = "SensorBar";
 						- _id = GUID 9aa26348-5ff6-4061-a436-8a3e9cea2cb7;
@@ -3108,7 +3088,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "Main";
 						- _name = "ADC";
 						- _id = GUID 141ca2d9-7037-4817-9856-b157bad1b502;
@@ -3186,7 +3166,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "Main";
 						- _name = "Calibrate";
 						- _id = GUID 2e59b623-f8d6-4815-bb45-1f08d5b3fe82;
@@ -3264,7 +3244,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "Main";
 						- _name = "SelfTest";
 						- _id = GUID c0a1e693-f816-4073-8bd5-e2e47f43140c;
@@ -3342,7 +3322,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "Main";
 						- _name = "VelocityCorrection";
 						- _id = GUID 51cea3f5-0955-4ef3-8978-b65921bc2acb;
@@ -3420,7 +3400,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IDependency";
 						- _filename = "Main.sbs";
-						- _subsystem = "Main";
+						- _subsystem = "ES770::Main";
 						- _class = "Main";
 						- _name = "Motor";
 						- _id = GUID adef27a8-08d2-49f2-96f6-06206621f7ba;
@@ -3548,9 +3528,9 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 			}
 			- _name = "Diagrama de Pacotes";
-			- _objectCreation = "162685421152015318636816";
-			- _umlDependencyID = "3308";
-			- _lastModifiedTime = "8.21.2015::5:59:58";
+			- _objectCreation = "1231078212520151913753812";
+			- _umlDependencyID = "3345";
+			- _lastModifiedTime = "8.21.2015::22:24:25";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID 8acbff9e-a8f4-4d74-912c-c229e94dcc5c;
 				- m_type = 0;
@@ -3627,11 +3607,36 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID 5f33d284-c2d5-44a5-8a4a-b0a63dd9c299;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
 						- _filename = "Adc.sbs";
-						- _subsystem = "";
+						- _subsystem = "ES770";
 						- _class = "";
 						- _name = "Adc";
 						- _id = GUID 4e48f159-95db-45fc-93e1-eb52ffa8a574;
@@ -3651,52 +3656,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.129112 0 0 0.112076 102 285 ;
-					- m_bIsPreferencesInitialized = 1;
-					- m_AdditionalLabel = { CGIText 
-						- m_str = "";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nOrientationCtrlPt = 1;
-					}
-					- m_polygon = 4 0 0  0 1151  1216 1151  1216 0  ;
-					- m_nNameFormat = 0;
-					- m_nIsNameFormat = 0;
-				}
-				{ CGIPackage 
-					- _id = GUID d27a0eae-cdcd-41ff-8b43-36ee6845beac;
-					- m_type = 127;
-					- m_pModelObject = { IHandle 
-						- _m2Class = "ISubsystem";
-						- _filename = "ES770.sbs";
-						- _subsystem = "";
-						- _class = "";
-						- _name = "ES770";
-						- _id = GUID a719ac8d-1468-4d24-9af1-6ea3915beef4;
-					}
-					- m_pParent = GUID e0b4d4cc-4ffe-4ea8-8bbb-81a51b545fca;
-					- m_name = { CGIText 
-						- m_str = "ES770";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nOrientationCtrlPt = 5;
-					}
-					- m_drawBehavior = 4104;
-					- m_transform = 0.191612 0 0 0.147698 82 72 ;
+					- m_transform = 0.174342 0 0 0.115662 82 77.1794 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -3717,11 +3677,36 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID f7b926eb-6fc9-4466-bf3c-51aa6e17f7e5;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
 						- _filename = "Main.sbs";
-						- _subsystem = "";
+						- _subsystem = "ES770";
 						- _class = "";
 						- _name = "Main";
 						- _id = GUID 97014e96-fef5-4d72-a0bf-e169ad6602da;
@@ -3741,7 +3726,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.11102 0 0 0.125977 384 60 ;
+					- m_transform = 0.175165 0 0 0.110338 309 76.2765 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -3762,11 +3747,36 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID 679a2c7d-d1e3-434f-8097-1bc6da9223c2;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
 						- _filename = "SensorBar.sbs";
-						- _subsystem = "";
+						- _subsystem = "Calibrate";
 						- _class = "";
 						- _name = "SensorBar";
 						- _id = GUID 71e10367-4efc-4e82-960e-9f02755cec47;
@@ -3786,7 +3796,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.163651 0 0 0.0973067 348 300 ;
+					- m_transform = 0.175986 0 0 0.122457 307 213.996 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -3807,6 +3817,31 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID 6357bee0-efdf-4fd9-9aad-24a2bb7a9b8c;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
@@ -3831,7 +3866,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.0690789 0 0 0.0451781 120 456 ;
+					- m_transform = 0.176809 0 0 0.125109 82 213 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -3852,11 +3887,36 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID 163a2296-845f-41c2-a08d-98af071828c9;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
 						- _filename = "SelfTest.sbs";
-						- _subsystem = "";
+						- _subsystem = "Calibrate::SensorBar";
 						- _class = "";
 						- _name = "SelfTest";
 						- _id = GUID eab1f781-5284-4f96-8edd-7271be1637c3;
@@ -3876,7 +3936,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.149671 0 0 0.0929626 324 420 ;
+					- m_transform = 0.177632 0 0 0.117033 533 215.041 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -3897,6 +3957,31 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID 3b3c15f0-d662-4d71-80f3-eb42aac448df;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
@@ -3921,7 +4006,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.185855 0 0 0.122502 108 588 ;
+					- m_transform = 0.179276 0 0 0.122502 80 374 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -3942,6 +4027,31 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID 466de2ea-d7bf-4603-9d3f-f90eadb8f94b;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
@@ -3966,7 +4076,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.161184 0 0 0.123371 396 600 ;
+					- m_transform = 0.175164 0 0 0.123371 307 372 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -3987,11 +4097,36 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID 06376b21-95ff-49e0-a561-a69df1ee61df;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
 						- _filename = "Motor.sbs";
-						- _subsystem = "";
+						- _subsystem = "Pwm";
 						- _class = "";
 						- _name = "Motor";
 						- _id = GUID ff7b1e3e-7cc3-4f55-9636-78da1b858107;
@@ -4011,7 +4146,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.115132 0 0 0.0625543 122 804 ;
+					- m_transform = 0.179277 0 0 0.125109 80 532 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -4032,6 +4167,31 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 				}
 				{ CGIPackage 
 					- _id = GUID 117d7e8f-a76b-4a15-882a-3323ef8f5bf2;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 					- m_type = 127;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "ISubsystem";
@@ -4056,7 +4216,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0.106908 0 0 0.0529974 384 792 ;
+					- m_transform = 0.174342 0 0 0.126846 533 371.951 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -4102,6 +4262,76 @@ I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
 					}
 					- m_drawBehavior = 4104;
 					- m_transform = 0.111842 0 0 0.0599479 120 912 ;
+					- m_bIsPreferencesInitialized = 1;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 4 0 0  0 1151  1216 1151  1216 0  ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+				}
+				{ CGIPackage 
+					- _id = GUID d27a0eae-cdcd-41ff-8b43-36ee6845beac;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					- m_type = 127;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "ISubsystem";
+						- _filename = "ES770.sbs";
+						- _subsystem = "";
+						- _class = "";
+						- _name = "ES770";
+						- _id = GUID a719ac8d-1468-4d24-9af1-6ea3915beef4;
+					}
+					- m_pParent = GUID e0b4d4cc-4ffe-4ea8-8bbb-81a51b545fca;
+					- m_name = { CGIText 
+						- m_str = "ES770";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_drawBehavior = 4104;
+					- m_transform = 0.174342 0 0 0.113814 534 75.2765 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";

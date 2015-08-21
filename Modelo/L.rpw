@@ -30,15 +30,15 @@ I-Logix-RPY-Archive version 8.5.2 Modeler * 1159120
 				- _id = GUID 8275f54a-8c8b-48f5-b7d4-66afd5827e9f;
 			}
 			- _UpLeft = 0 0 ;
-			- _DownRight = 1431 731 ;
+			- _DownRight = 677 346 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 0;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
 				- m_nLength = 44;
-				- m_nFlags = 2;
-				- m_showCmd = 3;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
 				- m_ptMinPositionX = -1;
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -8;
@@ -57,16 +57,16 @@ I-Logix-RPY-Archive version 8.5.2 Modeler * 1159120
 				- _name = "Diagrama de Requisitos";
 				- _id = GUID da1307e5-60c9-4a8f-aeb8-e22cf2e3bb6c;
 			}
-			- _UpLeft = 10 -3 ;
-			- _DownRight = 1063 685 ;
+			- _UpLeft = 0 0 ;
+			- _DownRight = 856 382 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 2;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
 				- m_nLength = 44;
-				- m_nFlags = 0;
-				- m_showCmd = 1;
+				- m_nFlags = 2;
+				- m_showCmd = 3;
 				- m_ptMinPositionX = -1;
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -8;
@@ -86,12 +86,12 @@ I-Logix-RPY-Archive version 8.5.2 Modeler * 1159120
 				- _id = GUID 62f562ae-a76e-4711-b5ac-2d722bfe4dda;
 			}
 			- _UpLeft = 0 0 ;
-			- _DownRight = 2431 1193 ;
+			- _DownRight = 1551 958 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 1;
 		}
 	}
-	- _fullName = "C:\\RodolfoBitu\\Gradua\ç\ão\\12 semestre formando\\L\\L\\Modelo\\L";
+	- _fullName = "C:\\Users\\ES770A\\Documents\\GitHub\\L\\Modelo\\L";
 	- m_SearchScopeList = { IRPYRawContainer 
 		- size = 0;
 	}
