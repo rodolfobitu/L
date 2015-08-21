@@ -1,11 +1,22 @@
 I-Logix-RPY-Archive version 8.5.2 Modeler * 1159120
 
 - filesTable = { IRPYRawContainer 
-	- size = 5;
+	- size = 16;
 	- value = "L.rpy" ""
+	"L_rpy\\Adc.sbs" "Adc"
+	"L_rpy\\Calibrate.sbs" "Calibrate"
 	"L_rpy\\Default.sbs" "Default"
 	"L_rpy\\DefaultComponent.cmp" "DefaultComponent"
+	"L_rpy\\ES770.sbs" "ES770"
+	"L_rpy\\Encoder.sbs" "Encoder"
+	"L_rpy\\Main.sbs" "Main"
+	"L_rpy\\Motor.sbs" "Motor"
+	"L_rpy\\PID.sbs" "PID"
+	"L_rpy\\Pwm.sbs" "Pwm"
 	"L_rpy\\RequisitosPKG.sbs" "RequisitosPKG"
+	"L_rpy\\SelfTest.sbs" "SelfTest"
+	"L_rpy\\SensorBar.sbs" "SensorBar"
+	"L_rpy\\VelocityCorrection.sbs" "VelocityCorrection"
 	"Projects.rpl" ""
 	
 }
