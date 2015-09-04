@@ -16,11 +16,11 @@ void adc_init(void) {
 	ADCON2bits.ADCS = 0b101;  // 16 TOSC
 }
 
-unsigned int adc_get(char channel) {
+unsigned int adc_get(char cChannel) {
 	unsigned int uiLow, uiHigh;
 
 	/* Select channel and start convertion */
-	ADCON0bits.CHS = channel;
+	ADCON0bits.CHS = cChannel;
 	ADCON0bits.GO_DONE = 1;
 
 	/* Poll on DONE */

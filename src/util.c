@@ -12,7 +12,7 @@ timer = 65536 - ( (tempo/ (1 / (FOSC/4))) / ps)
 */
 
 /* timer config for ?ms */
-#define UTIL_TIMER0_RESET_VALUE 		60000
+#define UTIL_TIMER0_RESET_VALUE 		55000
 #define UTIL_TIMER0_RESET_VALUE_HIGH    ((UTIL_TIMER0_RESET_VALUE & 0xff00) >> 8)
 #define UTIL_TIMER0_RESET_VALUE_LOW 	( UTIL_TIMER0_RESET_VALUE & 0x00ff)
 

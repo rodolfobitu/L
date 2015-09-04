@@ -46,16 +46,25 @@ void L_init(void) {
 	LED_1_DIR = OUTPUT;
 	LED_2_DIR = OUTPUT;
 	LED_3_DIR = OUTPUT;
+	LED_4_DIR = OUTPUT;
+
+	LED_IR0_DIR = OUTPUT;
+	LED_IR1_DIR = OUTPUT;
+	LED_IR2_DIR = OUTPUT;
+	LED_IR3_DIR = OUTPUT;
+	LED_IR4_DIR = OUTPUT;
+	LED_IR5_DIR = OUTPUT;
 
 	adc_init();
 }
 
 void main(void) {
 	unsigned int i, adcValue;
-	char cChannel = 0;
-
+	
 	/* run uC init configs */
 	L_init();
+
+	/* Turn all IR leds on */
 	
 	/* config and start the cyclic executive */
 	util_configCyclicExecutive();
@@ -63,16 +72,18 @@ void main(void) {
 	/* main system loop, runs forever */
 
 	while(1) {
+		/* Set IR leds */		
+		LED_IR0 = LED_IR_ON;
+		LED_IR1 = LED_IR2 = LED_IR3 = LED_IR4 = LED_IR5 = LED_IR_OFF;
+
 		/* Read from analog input */
-		adcValue = adc_get(cChannel);
+		adcValue = adc_get(0);
 
 		/* Show result */
-		LED_1 = cChannel & 0x1;
-		LED_2 = (cChannel >> 1) & 0x1;
-		LED_3 = (cChannel >> 2) & 0x1;
-
-		/* Switch to next channel */
-		cChannel = (cChannel+1)%6;
+		LED_4 = (adcValue >> 9) & 0x1;
+		LED_1 = (adcValue >> 8) & 0x1;
+		LED_2 = (adcValue >> 7) & 0x1;
+		LED_3 = (adcValue >> 6) & 0x1;
 
 		/* Wait for period */
 		while(!uiFlagNextPeriod);
