@@ -1,5 +1,4 @@
 #include "L.h"
-#include "util.h"
 
 /* uC init configurations */
 
@@ -14,34 +13,6 @@
 #pragma config WDT    = OFF			//Watchdog timer disabled
 #pragma config LVP    = OFF			//Single-Supply ICSP disabled
 
-
-/* globals */
-volatile unsigned int uiFlagNextPeriod = 0;	// cyclic executive flag
-
-/* setup the interruption */
-void isr_CyclicExecutive();
-#pragma code high_vector=0x08
-void isr_HighVector(void)
-{
-  _asm GOTO isr_CyclicExecutive _endasm
-}
-#pragma code
-
-/* setup the isr */
-#pragma interrupt isr_CyclicExecutive
-void isr_CyclicExecutive(void) {
-	if (INTCONbits.TMR0IF) {
-		/* set the cyclic executive flag */
-		uiFlagNextPeriod = 1;
-
-		/* reset the cyclic executive counting */
-		util_resetCyclicExecutive();
-
-		/* acknowledge the interrupt */
-		INTCONbits.TMR0IF = 0;
-	}
-}
-
 void L_init(void) {
 	/* clean all ports */
 	PORTA = PORTB = PORTC = PORTD = PORTE = 0;
@@ -52,26 +23,12 @@ void L_init(void) {
 }
 
 void main(void) {
-	char cLedsOn = 0;
-
 	/* run uC init configs */
 	L_init();
 
-	/* config and start the cyclic executive */
-	util_configCyclicExecutive();
-
 	/* main system loop, runs forever */
 	while(1) {
-		cLedsOn = !cLedsOn;
-		if (cLedsOn) {
-			LED_1 = LED_2 = LED_3 = LED_ON;
-		} else {
-			LED_1 = LED_2 = LED_3 = LED_OFF;
-		}
-
-		/* WAIT FOR CYCLIC EXECUTIVE PERIOD */
-		while(!uiFlagNextPeriod);
-		uiFlagNextPeriod = 0;
-
+		LED_1 = LED_ON;
+		LED_2 = LED_OFF;
 	}
 }
