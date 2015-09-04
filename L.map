@@ -1,5 +1,5 @@
 MPLINK 5.00, LINKER
-Linker Map File - Created Fri Sep 04 17:19:39 2015
+Linker Map File - Created Fri Sep 04 18:59:51 2015
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -8,26 +8,27 @@ Linker Map File - Created Fri Sep 04 17:19:39 2015
            .code___init.o       code   0x000006    program   0x000002
               high_vector       code   0x000008    program   0x000006
                    .cinit    romdata   0x00000e    program   0x00000e
-             .code_util.o       code   0x00001c    program   0x0004bc
-                .code_L.o       code   0x0004d8    program   0x000150
-              .code_adc.o       code   0x000628    program   0x0000a2
-               _cinit_scn       code   0x0006ca    program   0x00009e
-         .code_fxd1616u.o       code   0x000768    program   0x00002c
-                    .code       code   0x000794    program   0x000020
-             _startup_scn       code   0x0007b4    program   0x00001c
-        .idata___init.o_i    romdata   0x0007d0    program   0x000000
-      .romdata_fxd1616u.o    romdata   0x0007d0    program   0x000000
-      .idata_fxd1616u.o_i    romdata   0x0007d0    program   0x000000
-           .romdata_adc.o    romdata   0x0007d0    program   0x000000
-           .idata_adc.o_i    romdata   0x0007d0    program   0x000000
-        .romdata___init.o    romdata   0x0007d0    program   0x000000
-          .romdata_util.o    romdata   0x0007d0    program   0x000000
-          .idata_util.o_i    romdata   0x0007d0    program   0x000000
-             .romdata_L.o    romdata   0x0007d0    program   0x000000
-             .idata_L.o_i    romdata   0x0007d0    program   0x000002
-         .romdata_c018i.o    romdata   0x0007d0    program   0x000000
-         .idata_c018i.o_i    romdata   0x0007d0    program   0x000000
-            .code_c018i.o       code   0x0007d2    program   0x000000
+                .code_L.o       code   0x00001c    program   0x000154
+             .code_util.o       code   0x000170    program   0x0000cc
+              .code_adc.o       code   0x00023c    program   0x0000a2
+               _cinit_scn       code   0x0002de    program   0x00009e
+                     PROG       code   0x00037c    program   0x000034
+                    .code       code   0x0003b0    program   0x000020
+             _startup_scn       code   0x0003d0    program   0x00001c
+         .code_fxd0808u.o       code   0x0003ec    program   0x00001c
+        .idata___init.o_i    romdata   0x000408    program   0x000000
+        .romdata___init.o    romdata   0x000408    program   0x000000
+      .romdata_fxd0808u.o    romdata   0x000408    program   0x000000
+      .idata_fxd0808u.o_i    romdata   0x000408    program   0x000000
+           .romdata_adc.o    romdata   0x000408    program   0x000000
+           .idata_adc.o_i    romdata   0x000408    program   0x000000
+          .romdata_util.o    romdata   0x000408    program   0x000000
+          .idata_util.o_i    romdata   0x000408    program   0x000000
+             .romdata_L.o    romdata   0x000408    program   0x000000
+             .idata_L.o_i    romdata   0x000408    program   0x000002
+         .romdata_c018i.o    romdata   0x000408    program   0x000000
+         .idata_c018i.o_i    romdata   0x000408    program   0x000000
+            .code_c018i.o       code   0x00040a    program   0x000000
        .config_300001_L.o    romdata   0x300001    program   0x000001
        .config_300002_L.o    romdata   0x300002    program   0x000001
        .config_300003_L.o    romdata   0x300003    program   0x000001
@@ -42,8 +43,8 @@ Linker Map File - Created Fri Sep 04 17:19:39 2015
             .idata_util.o      idata   0x00006c       data   0x000000
              .udata_adc.o      udata   0x00006c       data   0x000000
              .idata_adc.o      idata   0x00006c       data   0x000000
-        .udata_fxd1616u.o      udata   0x00006c       data   0x000000
-        .idata_fxd1616u.o      idata   0x00006c       data   0x000000
+        .udata_fxd0808u.o      udata   0x00006c       data   0x000000
+        .idata_fxd0808u.o      idata   0x00006c       data   0x000000
           .udata___init.o      udata   0x00006c       data   0x000000
           .idata___init.o      idata   0x00006c       data   0x000000
                    .stack      udata   0x000300       data   0x000100
@@ -54,105 +55,65 @@ Linker Map File - Created Fri Sep 04 17:19:39 2015
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0007d1      
+                            0x000000    0x000409      
                             0x300001    0x300003      
                             0x300006    0x300006      
-            2006 out of 33048 program addresses used, program memory utilization is 6%
+            1038 out of 33048 program addresses used, program memory utilization is 3%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                 FXD1616U   0x000768    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                   L_init   0x00057c    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
-          ___for_lbl00001   0x000050    program     static                          
-          ___for_lbl00002   0x000054    program     static                          
-          ___for_lbl00003   0x000028    program     static                          
-          ___for_lbl00005   0x000084    program     static                          
-          ___for_lbl00006   0x000088    program     static                          
-          ___for_lbl00007   0x00006a    program     static                          
-          ___for_lbl00008   0x0000b4    program     static                          
-          ___for_lbl00009   0x0000b8    program     static                          
-          ___for_lbl00010   0x00008a    program     static                          
-          ___for_lbl00012   0x0000e8    program     static                          
-          ___for_lbl00013   0x0000ec    program     static                          
-          ___for_lbl00014   0x0000ce    program     static                          
-          ___for_lbl00015   0x000108    program     static                          
-          ___for_lbl00016   0x00010c    program     static                          
-          ___for_lbl00017   0x0000ee    program     static                          
-          ___for_lbl00018   0x00013a    program     static                          
-          ___for_lbl00019   0x00013e    program     static                          
-          ___for_lbl00020   0x00010e    program     static                          
-          ___for_lbl00022   0x00016e    program     static                          
-          ___for_lbl00023   0x000172    program     static                          
-          ___for_lbl00024   0x000154    program     static                          
-          ___for_lbl00025   0x00018e    program     static                          
-          ___for_lbl00026   0x000192    program     static                          
-          ___for_lbl00027   0x000174    program     static                          
-          ___for_lbl00028   0x0001ae    program     static                          
-          ___for_lbl00029   0x0001b2    program     static                          
-          ___for_lbl00030   0x000194    program     static                          
-          ___for_lbl00031   0x0001e2    program     static                          
-          ___for_lbl00032   0x0001e6    program     static                          
-          ___for_lbl00033   0x0001b4    program     static                          
-       ___return_lbl00000   0x00000c    program     static                          
-       ___return_lbl00000   0x000792    program     static                          
+                   D0808S   0x000392    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                D0808SNEG   0x0003a0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 D0808SOK   0x00039c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  D0808SX   0x0003a6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  DA0808S   0x000388    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 FXD0808S   0x00037c    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 FXD0808U   0x0003ec    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
+                   L_init   0x0000c0    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
+          ___for_lbl00001   0x0001a4    program     static                          
+          ___for_lbl00002   0x0001a8    program     static                          
+          ___for_lbl00003   0x00017c    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00000   0x000054    program     static                          
-       ___return_lbl00001   0x0007ce    program     static                          
-       ___return_lbl00002   0x000766    program     static                          
-       ___return_lbl00004   0x0000b8    program     static                          
-       ___return_lbl00011   0x00013e    program     static                          
-       ___return_lbl00021   0x0001e6    program     static                          
+       ___return_lbl00000   0x0001a8    program     static                          
+       ___return_lbl00000   0x00000c    program     static                          
+       ___return_lbl00000   0x000406    program     static                          
+       ___return_lbl00001   0x0003ea    program     static                          
+       ___return_lbl00002   0x00037a    program     static                          
                __config_0   0x300001    program     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
                __config_1   0x300002    program     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
                __config_2   0x300003    program     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
                __config_3   0x300006    program     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
                    __init   0x000006    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-               __tmplbl_0   0x00003a    program     static                          
-               __tmplbl_1   0x00007c    program     static                          
-               __tmplbl_2   0x00009c    program     static                          
-               __tmplbl_3   0x0000e0    program     static                          
-               __tmplbl_4   0x000100    program     static                          
-               __tmplbl_5   0x000120    program     static                          
-               __tmplbl_6   0x000166    program     static                          
-               __tmplbl_7   0x000186    program     static                          
-               __tmplbl_8   0x0001a6    program     static                          
-               __tmplbl_9   0x0001c6    program     static                          
-            __zero_memory   0x000794    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                _do_cinit   0x0006ca    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+               __tmplbl_0   0x00018e    program     static                          
+            __zero_memory   0x0003b0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                _do_cinit   0x0002de    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                 _startup   0x0007b4    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                  adc_get   0x00064a    program     extern C:\Users\ES770A\Documents\GitHub\L\src\adc.c
-                 adc_init   0x000628    program     extern C:\Users\ES770A\Documents\GitHub\L\src\adc.c
-                compare_l   0x0007aa    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                copy_loop   0x00073c    program     static                          
-            copy_one_byte   0x000742    program     static                          
-                     done   0x000766    program     static                          
-             done_copying   0x000750    program     static                          
-                  endloop   0x00078e    program     static                          
-      isr_CyclicExecutive   0x0004d8    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
+                 _startup   0x0003d0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                  adc_get   0x00025e    program     extern C:\Users\ES770A\Documents\GitHub\L\src\adc.c
+                 adc_init   0x00023c    program     extern C:\Users\ES770A\Documents\GitHub\L\src\adc.c
+                compare_l   0x0003c6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                copy_loop   0x000350    program     static                          
+            copy_one_byte   0x000356    program     static                          
+                     done   0x00037a    program     static                          
+             done_copying   0x000364    program     static                          
+                  endloop   0x000402    program     static                          
+      isr_CyclicExecutive   0x00001c    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
            isr_HighVector   0x000008    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
-                     loop   0x000772    program     static                          
-                     loop   0x0007c4    program     static                          
-                   loop_h   0x0007a2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                   loop_l   0x0007ac    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                     main   0x000592    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
-                     test   0x0006e4    program     static                          
-util_configCyclicExecutive   0x0001f8    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
- util_convertFromUi2Ascii   0x0002a2    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-       util_genDelay100MS   0x0000c2    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-        util_genDelay10MS   0x00005e    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-         util_genDelay1MS   0x00001c    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-       util_genDelay500MS   0x000148    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-      util_getTimer1Count   0x000238    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
- util_initTimer1AsCounter   0x000212    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-util_resetCyclicExecutive   0x0001f0    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-  util_resetTimer1Counter   0x00022a    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-  util_startTimer1Counter   0x000230    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-   util_stopTimer1Counter   0x000234    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-               zero_block   0x0007a2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                     loop   0x0003f4    program     static                          
+                     loop   0x0003e0    program     static                          
+                   loop_h   0x0003be    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                   loop_l   0x0003c8    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                     main   0x0000d6    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
+                     test   0x0002f8    program     static                          
+util_configCyclicExecutive   0x000222    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+       util_genDelay100MS   0x0001e6    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+        util_genDelay10MS   0x0001b2    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+         util_genDelay1MS   0x000170    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+util_resetCyclicExecutive   0x00021a    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+               zero_block   0x0003be    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                    ADCON0   0x000fc2       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                ADCON0bits   0x000fc2       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                    ADCON1   0x000fc1       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
@@ -289,7 +250,7 @@ util_resetCyclicExecutive   0x0001f0    program     extern C:\Users\ES770A\Docum
                     RCREG   0x000fae       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                     RCSTA   0x000fab       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                 RCSTAbits   0x000fab       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                     SIGN   0x00000e       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
+                     SIGN   0x000000       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
                     SPBRG   0x000faf       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                    SPBRGH   0x000fb0       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                    SPPCFG   0x000f63       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
@@ -404,26 +365,26 @@ util_resetCyclicExecutive   0x0001f0    program     extern C:\Users\ES770A\Docum
                    WDTCON   0x000fd1       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                WDTCONbits   0x000fd1       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
                      WREG   0x000fe8       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                 __AARGB0   0x000007       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB1   0x000006       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB2   0x000005       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB3   0x000004       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB4   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB5   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB6   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB7   0x000000       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                   __AEXP   0x000008       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __BARGB0   0x00000c       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                 __BARGB1   0x00000b       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                 __BARGB2   0x00000a       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                 __BARGB3   0x000009       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                   __BEXP   0x00000d       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                __FPFLAGS   0x00000f       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
-            __FPFLAGSbits   0x00000f       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
-                  __REMB0   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                  __REMB1   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                  __REMB2   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                  __REMB3   0x000000       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB0   0x000009       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB1   0x000008       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB2   0x000007       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB3   0x000006       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB4   0x000005       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB5   0x000004       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB6   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB7   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                   __AEXP   0x00000a       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __BARGB0   0x00000e       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                 __BARGB1   0x00000d       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                 __BARGB2   0x00000c       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                 __BARGB3   0x00000b       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                   __BEXP   0x00000f       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                __FPFLAGS   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
+            __FPFLAGSbits   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
+                  __REMB0   0x000005       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                  __REMB1   0x000004       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                  __REMB2   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                  __REMB3   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
                   __tmp_0   0x000010       data     static C:\Users\ES770A\Documents\GitHub\L\src\adc.c
                   __tmp_0   0x000010       data     static C:\Users\ES770A\Documents\GitHub\L\src\util.c
                   __tmp_0   0x000010       data     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
@@ -443,111 +404,71 @@ util_resetCyclicExecutive   0x0001f0    program     extern C:\Users\ES770A\Docum
                    __init   0x000006    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
            isr_HighVector   0x000008    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
        ___return_lbl00000   0x00000c    program     static                          
-         util_genDelay1MS   0x00001c    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-          ___for_lbl00003   0x000028    program     static                          
-               __tmplbl_0   0x00003a    program     static                          
-          ___for_lbl00001   0x000050    program     static                          
-          ___for_lbl00002   0x000054    program     static                          
-       ___return_lbl00000   0x000054    program     static                          
-        util_genDelay10MS   0x00005e    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-          ___for_lbl00007   0x00006a    program     static                          
-               __tmplbl_1   0x00007c    program     static                          
-          ___for_lbl00005   0x000084    program     static                          
-          ___for_lbl00006   0x000088    program     static                          
-          ___for_lbl00010   0x00008a    program     static                          
-               __tmplbl_2   0x00009c    program     static                          
-          ___for_lbl00008   0x0000b4    program     static                          
-          ___for_lbl00009   0x0000b8    program     static                          
-       ___return_lbl00004   0x0000b8    program     static                          
-       util_genDelay100MS   0x0000c2    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-          ___for_lbl00014   0x0000ce    program     static                          
-               __tmplbl_3   0x0000e0    program     static                          
-          ___for_lbl00012   0x0000e8    program     static                          
-          ___for_lbl00013   0x0000ec    program     static                          
-          ___for_lbl00017   0x0000ee    program     static                          
-               __tmplbl_4   0x000100    program     static                          
-          ___for_lbl00015   0x000108    program     static                          
-          ___for_lbl00016   0x00010c    program     static                          
-          ___for_lbl00020   0x00010e    program     static                          
-               __tmplbl_5   0x000120    program     static                          
-          ___for_lbl00018   0x00013a    program     static                          
-       ___return_lbl00011   0x00013e    program     static                          
-          ___for_lbl00019   0x00013e    program     static                          
-       util_genDelay500MS   0x000148    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-          ___for_lbl00024   0x000154    program     static                          
-               __tmplbl_6   0x000166    program     static                          
-          ___for_lbl00022   0x00016e    program     static                          
-          ___for_lbl00023   0x000172    program     static                          
-          ___for_lbl00027   0x000174    program     static                          
-               __tmplbl_7   0x000186    program     static                          
-          ___for_lbl00025   0x00018e    program     static                          
-          ___for_lbl00026   0x000192    program     static                          
-          ___for_lbl00030   0x000194    program     static                          
-               __tmplbl_8   0x0001a6    program     static                          
-          ___for_lbl00028   0x0001ae    program     static                          
-          ___for_lbl00029   0x0001b2    program     static                          
-          ___for_lbl00033   0x0001b4    program     static                          
-               __tmplbl_9   0x0001c6    program     static                          
-          ___for_lbl00031   0x0001e2    program     static                          
-       ___return_lbl00021   0x0001e6    program     static                          
-          ___for_lbl00032   0x0001e6    program     static                          
-util_resetCyclicExecutive   0x0001f0    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-util_configCyclicExecutive   0x0001f8    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
- util_initTimer1AsCounter   0x000212    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-  util_resetTimer1Counter   0x00022a    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-  util_startTimer1Counter   0x000230    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-   util_stopTimer1Counter   0x000234    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-      util_getTimer1Count   0x000238    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
- util_convertFromUi2Ascii   0x0002a2    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
-      isr_CyclicExecutive   0x0004d8    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
-                   L_init   0x00057c    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
-                     main   0x000592    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
-                 adc_init   0x000628    program     extern C:\Users\ES770A\Documents\GitHub\L\src\adc.c
-                  adc_get   0x00064a    program     extern C:\Users\ES770A\Documents\GitHub\L\src\adc.c
-                _do_cinit   0x0006ca    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     test   0x0006e4    program     static                          
-                copy_loop   0x00073c    program     static                          
-            copy_one_byte   0x000742    program     static                          
-             done_copying   0x000750    program     static                          
-                     done   0x000766    program     static                          
-       ___return_lbl00002   0x000766    program     static                          
-                 FXD1616U   0x000768    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd1616u.c
-                     loop   0x000772    program     static                          
-                  endloop   0x00078e    program     static                          
-       ___return_lbl00000   0x000792    program     static                          
-            __zero_memory   0x000794    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-               zero_block   0x0007a2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                   loop_h   0x0007a2    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                compare_l   0x0007aa    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                   loop_l   0x0007ac    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
-                 _startup   0x0007b4    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x0007c4    program     static                          
-       ___return_lbl00001   0x0007ce    program     static                          
+      isr_CyclicExecutive   0x00001c    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
+                   L_init   0x0000c0    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
+                     main   0x0000d6    program     extern C:\Users\ES770A\Documents\GitHub\L\src\L.c
+         util_genDelay1MS   0x000170    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+          ___for_lbl00003   0x00017c    program     static                          
+               __tmplbl_0   0x00018e    program     static                          
+          ___for_lbl00001   0x0001a4    program     static                          
+       ___return_lbl00000   0x0001a8    program     static                          
+          ___for_lbl00002   0x0001a8    program     static                          
+        util_genDelay10MS   0x0001b2    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+       util_genDelay100MS   0x0001e6    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+util_resetCyclicExecutive   0x00021a    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+util_configCyclicExecutive   0x000222    program     extern C:\Users\ES770A\Documents\GitHub\L\src\util.c
+                 adc_init   0x00023c    program     extern C:\Users\ES770A\Documents\GitHub\L\src\adc.c
+                  adc_get   0x00025e    program     extern C:\Users\ES770A\Documents\GitHub\L\src\adc.c
+                _do_cinit   0x0002de    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     test   0x0002f8    program     static                          
+                copy_loop   0x000350    program     static                          
+            copy_one_byte   0x000356    program     static                          
+             done_copying   0x000364    program     static                          
+                     done   0x00037a    program     static                          
+       ___return_lbl00002   0x00037a    program     static                          
+                 FXD0808S   0x00037c    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  DA0808S   0x000388    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                   D0808S   0x000392    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                 D0808SOK   0x00039c    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                D0808SNEG   0x0003a0    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+                  D0808SX   0x0003a6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808s.asm
+            __zero_memory   0x0003b0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+               zero_block   0x0003be    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                   loop_h   0x0003be    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                compare_l   0x0003c6    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                   loop_l   0x0003c8    program     static E:\3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f4550.asm
+                 _startup   0x0003d0    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x0003e0    program     static                          
+       ___return_lbl00001   0x0003ea    program     static                          
+                 FXD0808U   0x0003ec    program     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\fxd0808u.c
+                     loop   0x0003f4    program     static                          
+                  endloop   0x000402    program     static                          
+       ___return_lbl00000   0x000406    program     static                          
                __config_0   0x300001    program     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
                __config_1   0x300002    program     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
                __config_2   0x300003    program     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
                __config_3   0x300006    program     static C:\Users\ES770A\Documents\GitHub\L\src\L.c
-                  __REMB3   0x000000       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB7   0x000000       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB6   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                  __REMB2   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB5   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                  __REMB1   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB4   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                  __REMB0   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB3   0x000004       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB2   0x000005       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB1   0x000006       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __AARGB0   0x000007       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                   __AEXP   0x000008       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
-                 __BARGB3   0x000009       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                 __BARGB2   0x00000a       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                 __BARGB1   0x00000b       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                 __BARGB0   0x00000c       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                   __BEXP   0x00000d       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
-                     SIGN   0x00000e       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
-                __FPFLAGS   0x00000f       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
-            __FPFLAGSbits   0x00000f       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
+                     SIGN   0x000000       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
+                __FPFLAGS   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
+            __FPFLAGSbits   0x000001       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\cmath18.asm
+                 __AARGB7   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                  __REMB3   0x000002       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB6   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                  __REMB2   0x000003       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB5   0x000004       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                  __REMB1   0x000004       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB4   0x000005       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                  __REMB0   0x000005       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB3   0x000006       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB2   0x000007       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB1   0x000008       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __AARGB0   0x000009       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                   __AEXP   0x00000a       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\aarg.asm
+                 __BARGB3   0x00000b       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                 __BARGB2   0x00000c       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                 __BARGB1   0x00000d       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                 __BARGB0   0x00000e       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
+                   __BEXP   0x00000f       data     extern E:\3.46\pic18-lt\cxx-framework\src\traditional\math\barg.asm
                   __tmp_0   0x000010       data     static C:\Users\ES770A\Documents\GitHub\L\src\adc.c
                   __tmp_0   0x000010       data     static C:\Users\ES770A\Documents\GitHub\L\src\util.c
                   __tmp_0   0x000010       data     static C:\Users\ES770A\Documents\GitHub\L\src\L.c

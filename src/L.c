@@ -52,6 +52,8 @@ void L_init(void) {
 
 void main(void) {
 	unsigned int i, adcValue;
+	char cChannel = 0;
+
 	/* run uC init configs */
 	L_init();
 	
@@ -61,13 +63,18 @@ void main(void) {
 	/* main system loop, runs forever */
 
 	while(1) {
-		/* Get 3 MSB from AN0 */
-		adcValue = adc_get(5);
-		LED_1 = !LED_1;
-		LED_2 = adcValue >= 512 ? LED_ON : LED_OFF;
-		LED_3 = adcValue >= 256 ? LED_ON : LED_OFF;
+		/* Read from analog input */
+		adcValue = adc_get(cChannel);
 
-		/* WAIT FOR CYCLIC EXECUTIVE PERIOD */
+		/* Show result */
+		LED_1 = cChannel & 0x1;
+		LED_2 = (cChannel >> 1) & 0x1;
+		LED_3 = (cChannel >> 2) & 0x1;
+
+		/* Switch to next channel */
+		cChannel = (cChannel+1)%6;
+
+		/* Wait for period */
 		while(!uiFlagNextPeriod);
 		uiFlagNextPeriod = 0;
 	}
