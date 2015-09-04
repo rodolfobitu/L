@@ -1,17 +1,8 @@
-/* ***************************************************************** */
-/* File name:		 util.c                  						 */
-/* File description: This file has a couple of useful functions to   */
-/*					 make programming more productive			     */
-/* Author name:      dloubach										 */
-/* Creation date:    09jan2015										 */
-/* Revision date:    07mai2015										 */
-/* ***************************************************************** */
-
 #include "util.h"
 #include "L.h"
 
 /*
-FOSC = 48 MHz
+FOSC = 20 MHz
 tick = 1 / (FOSC/4)
 count = time [ms] / tick
 timer = 65536 - (Count/prescale)
@@ -21,10 +12,7 @@ timer = 65536 - ( (tempo/ (1 / (FOSC/4))) / ps)
 */
 
 /* timer config for 100ms */
-#define UTIL_TIMER0_TEMPO 				1000
-#define UTIL_TIMER0_FOSC				48000
-#define UTIL_TIMER0_PS					256
-#define UTIL_TIMER0_RESET_VALUE 		60849
+#define UTIL_TIMER0_RESET_VALUE 		63000
 #define UTIL_TIMER0_RESET_VALUE_HIGH    ((UTIL_TIMER0_RESET_VALUE & 0xff00) >> 8)
 #define UTIL_TIMER0_RESET_VALUE_LOW 	( UTIL_TIMER0_RESET_VALUE & 0x00ff)
 
