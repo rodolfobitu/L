@@ -90,6 +90,9 @@ void L_init(void) {
 	RIGHT_MOTOR_DIR = OUTPUT;
 	LEFT_MOTOR_DIR = OUTPUT;
 
+	RIGHT_MOTOR = 1;
+	LEFT_MOTOR = 1;
+
 	adc_init();
 }
 
@@ -129,10 +132,13 @@ void main(void) {
 		adcValue = adc_get(0);
 
 		/* Show result */
-		LED_4 = (adcValue >> 9) & 0x1;
-		LED_1 = (adcValue >> 8) & 0x1;
-		LED_2 = (adcValue >> 7) & 0x1;
-		LED_3 = (adcValue >> 6) & 0x1;
+		LED_4 = (uiLeftSpeed >> 0) & 0x1;
+		LED_1 = (uiLeftSpeed >> 1) & 0x1;
+		LED_2 = (uiLeftSpeed >> 2) & 0x1;
+		LED_3 = (uiLeftSpeed >> 3) & 0x1;
+
+		pwm_setDutyCycle(160, PWM_LEFT);
+		pwm_setDutyCycle(200, PWM_RIGHT);
 
 		/* Wait for period */
 		while(!uiFlagNextPeriod);
