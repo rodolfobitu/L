@@ -1,6 +1,7 @@
 #include "L.h"
 #include "util.h"
 #include "adc.h"
+#include "pwm.h"
 
 /* uC init configurations */
 
@@ -70,9 +71,24 @@ void L_init(void) {
 	LED_IR4_DIR = OUTPUT;
 	LED_IR5_DIR = OUTPUT;
 
-	/* set up interruption bits */
+	/* Set up interruption bits */
 	INTCON3bits.INT1IE = 1;
 	INTCON3bits.INT2IE = 1;
+
+	/* Set up (ponte H) pins */
+	RIGHT_CW_DIR = OUTPUT;
+	RIGHT_CCW_DIR = OUTPUT;
+	LEFT_CW_DIR = OUTPUT;
+	LEFT_CCW_DIR = OUTPUT;
+
+	RIGHT_CW = 1;
+	RIGHT_CCW = 0;
+	LEFT_CW = 1;
+	LEFT_CCW = 0;
+
+	/* Set up motor pins */
+	RIGHT_MOTOR_DIR = OUTPUT;
+	LEFT_MOTOR_DIR = OUTPUT;
 
 	adc_init();
 }
@@ -96,12 +112,16 @@ void main(void) {
 	/* config and start the cyclic executive */
 	util_configCyclicExecutive();
 
+	/* init PWM */
+	pwm_init(PWM_LEFT);
+	pwm_init(PWM_RIGHT);
+
 	/* main system loop, runs forever */
 
 	while(1) {
 		task_getSpeed();
 
-		/* Set IR leds */		
+		/* Set IR leds */
 		LED_IR0 = LED_IR_ON;
 		LED_IR1 = LED_IR2 = LED_IR3 = LED_IR4 = LED_IR5 = LED_IR_OFF;
 

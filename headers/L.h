@@ -45,4 +45,24 @@
 #define LED_IR5		PORTDbits.RD2
 #define LED_IR5_DIR	TRISDbits.RD2
 
+/* (ponte H) pins */
+#define RIGHT_CW		PORTBbits.RB6
+#define RIGHT_CW_DIR	TRISBbits.RB6
+
+#define RIGHT_CCW		PORTBbits.RB7
+#define RIGHT_CCW_DIR	TRISBbits.RB7
+
+#define LEFT_CW			PORTBbits.RB5
+#define LEFT_CW_DIR		TRISBbits.RB5
+
+#define LEFT_CCW		PORTBbits.RB4
+#define LEFT_CCW_DIR	TRISBbits.RB4
+
+/* Motor pins */
+#define RIGHT_MOTOR		PORTCbits.RC2
+#define RIGHT_MOTOR_DIR	TRISCbits.RC2
+
+#define LEFT_MOTOR		PORTCbits.RC1
+#define LEFT_MOTOR_DIR	TRISCbits.RC1
+
 #endif /* L_H */
