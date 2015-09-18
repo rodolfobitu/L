@@ -15,6 +15,11 @@
 
 /* globals */
 volatile unsigned int uiFlagNextPeriod = 0;	// cyclic executive flag
+volatile unsigned int uiLeftCounter = 0;
+volatile unsigned int uiRightCounter = 0;
+
+unsigned int uiLeftSpeed = 0;
+unsigned int uiRightSpeed = 0;
 
 /* setup the interruption */
 void isr_CyclicExecutive();
@@ -37,6 +42,16 @@ void isr_CyclicExecutive(void) {
 		/* acknowledge the interrupt */
 		INTCONbits.TMR0IF = 0;
 	}
+	
+	if (INTCON3bits.INT1IF) {
+		uiLeftCounter++;
+		INTCON3bits.INT1IF = 0;
+	}
+	
+	if (INTCON3bits.INT2IF) {
+		uiRightCounter++;
+		INTCON3bits.INT2IF = 0;
+	}
 }
 
 void L_init(void) {
@@ -55,7 +70,19 @@ void L_init(void) {
 	LED_IR4_DIR = OUTPUT;
 	LED_IR5_DIR = OUTPUT;
 
+	/* set up interruption bits */
+	INTCON3bits.INT1IE = 1;
+	INTCON3bits.INT2IE = 1;
+
 	adc_init();
+}
+
+/* Read speed counter, save it and reset it */
+void task_getSpeed(void) {
+	uiLeftSpeed = uiLeftCounter;
+	uiRightSpeed = uiRightCounter;
+	uiLeftCounter = 0;
+	uiRightCounter = 0;
 }
 
 void main(void) {
@@ -72,6 +99,8 @@ void main(void) {
 	/* main system loop, runs forever */
 
 	while(1) {
+		task_getSpeed();
+
 		/* Set IR leds */		
 		LED_IR0 = LED_IR_ON;
 		LED_IR1 = LED_IR2 = LED_IR3 = LED_IR4 = LED_IR5 = LED_IR_OFF;
