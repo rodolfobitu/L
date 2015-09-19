@@ -74,9 +74,13 @@ function draw() {
 
 	// Draw interpolations
 	algorithms.forEach(({
+		name,
 		handler,
 		color
 	}) => {
+		let globalMaxX = 0,
+			globalMaxY = 0
+
 		context.beginPath()
 		handler(points, resolution).forEach((value, i) => {
 			let {
@@ -87,9 +91,18 @@ function draw() {
 			} else {
 				context.moveTo(x, y)
 			}
+			if (y > globalMaxY) {
+				globalMaxX = x
+				globalMaxY = y
+			}
 		})
 		context.strokeStyle = color
 		context.stroke()
+
+		context.beginPath()
+		context.arc(globalMaxX, globalMaxY, 7, 0, 2 * Math.PI)
+		context.stroke()
+		context.fillText(name, globalMaxX + 5, globalMaxY - 5)
 	})
 
 	// Draw points
