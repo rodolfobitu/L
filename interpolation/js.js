@@ -3,6 +3,9 @@
 /** @const {number} */
 const numPoints = 6
 
+/** @const {number} */
+const resolution = 100
+
 /**
  * The point values (from 0 to 100)
  * @var {Array<number>}
@@ -20,6 +23,9 @@ let width = 0
 
 /** @var {number} */
 let height = 0
+
+/** @var {Array<{name: string, handler: function(Array<number>):Array<number>}>} */
+let algorithms = []
 
 /**
  * `null` if no point is being dragged, point
@@ -66,11 +72,31 @@ function draw() {
 	// Reset
 	context.clearRect(0, 0, width, height)
 
+	// Draw interpolations
+	algorithms.forEach(({
+		handler,
+		color
+	}) => {
+		context.beginPath()
+		handler(points, resolution).forEach((value, i) => {
+			let {
+				x, y
+			} = toCanvasXY(i * (numPoints - 1) / (resolution - 1), value)
+			if (i) {
+				context.lineTo(x, y)
+			} else {
+				context.moveTo(x, y)
+			}
+		})
+		context.strokeStyle = color
+		context.stroke()
+	})
+
 	// Draw points
 	points.forEach((p, i) => {
 		let {
 			x, y
-		} = toCanvasXY(i)
+		} = toCanvasXY(i, p)
 		context.beginPath()
 		context.arc(x, y, 5, 0, 2 * Math.PI)
 		context.fill()
@@ -80,12 +106,13 @@ function draw() {
 /**
  * Return the i-th point coordinates in canvas space
  * @param {number} i
+ * @param {number} value
  * @returns {{x: number, y: number}}
  */
-function toCanvasXY(i) {
+function toCanvasXY(i, value) {
 	return {
 		x: width / (numPoints + 1) * (i + 1),
-		y: height * (0.1 + 0.8 * points[i] / 100)
+		y: height * (0.1 + 0.8 * value / 100)
 	}
 }
 
