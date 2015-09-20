@@ -4,7 +4,7 @@
 algorithms.push({
 	name: 'Cubic Spline',
 	color: 'red',
-	handler: function (points, resolution) {
+	handler: function (points, result) {
 		let n = points.length - 1
 		if (n !== 5) {
 			throw new Error('I am too lazy now to make this generic. Please use 6 points')
@@ -33,15 +33,14 @@ algorithms.push({
 		}
 
 		// Generate interpolated values
-		let result = new Array(resolution),
-			iToX = n / (resolution - 1)
-		for (let i = 0; i < resolution; i++) {
+		let res = result.length,
+			iToX = n / (res - 1)
+		for (let i = 0; i < res; i++) {
 			let x = i * iToX,
-				j = i === resolution - 1 ? n - 1 : Math.floor(x),
+				j = i === res - 1 ? n - 1 : Math.floor(x),
 				t = x - j
 
 			result[i] = a[j] + (b[j] + (c[j] + d[j] * t) * t) * t
 		}
-		return result
 	}
 })

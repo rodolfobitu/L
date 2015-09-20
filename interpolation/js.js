@@ -74,6 +74,7 @@ function draw() {
 	context.clearRect(0, 0, width, height)
 
 	// Draw interpolations
+	let result = new Array(resolution)
 	algorithms.forEach(({
 		name,
 		handler,
@@ -84,7 +85,8 @@ function draw() {
 			globalMaxY = 0
 
 		context.beginPath()
-		handler(points, resolution).forEach((value, i) => {
+		handler(points, result)
+		result.forEach((value, i) => {
 			let {
 				x, y
 			} = toCanvasXY(i * (numPoints - 1) / (resolution - 1), value)
@@ -198,9 +200,10 @@ function requestDraw() {
  * Measure execution time for all suplied algorithms
  */
 function timeAlgorithms() {
+	let result = new Array(1e3 * resolution)
 	algorithms.forEach(each => {
 		let startTime = Date.now()
-		each.handler(points, 1e3 * resolution)
+		each.handler(points, result)
 		each.time = Date.now() - startTime
 	})
 }

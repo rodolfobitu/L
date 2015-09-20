@@ -4,12 +4,12 @@
 algorithms.push({
 	name: 'B-Spline',
 	color: 'blue',
-	handler: function (points, resolution) {
+	handler: function (points, result) {
 		// Generate interpolated values
-		let result = new Array(resolution),
-			temp = new Array(points.length - 1)
-		for (let i = 0; i < resolution; i++) {
-			let t = i / (resolution - 1),
+		let temp = new Array(points.length - 1),
+			res = result.length
+		for (let i = 0; i < res; i++) {
+			let t = i / (res - 1),
 				t2 = 1 - t,
 				n = points.length - 1
 
@@ -25,6 +25,5 @@ algorithms.push({
 
 			result[i] = temp[0]
 		}
-		return result
 	}
 })
