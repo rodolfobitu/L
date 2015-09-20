@@ -33,13 +33,14 @@ algorithms.push({
 		}
 
 		// Generate interpolated values
-		let result = new Array(resolution)
+		let result = new Array(resolution),
+			iToX = n / (resolution - 1)
 		for (let i = 0; i < resolution; i++) {
-			let x = i * n / (resolution - 1),
+			let x = i * iToX,
 				j = i === resolution - 1 ? n - 1 : Math.floor(x),
 				t = x - j
 
-			result[i] = a[j] + b[j] * t + c[j] * t * t + d[j] * t * t * t
+			result[i] = a[j] + (b[j] + (c[j] + d[j] * t) * t) * t
 		}
 		return result
 	}
