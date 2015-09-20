@@ -4,7 +4,7 @@
 const numPoints = 6
 
 /** @const {number} */
-const resolution = 100
+const resolution = 1e3
 
 /**
  * The point values (from 0 to 100)
@@ -52,6 +52,7 @@ function init() {
 	canvas.addEventListener('mousedown', handleMouseDown)
 	canvas.addEventListener('mousemove', handleMouseMove)
 	canvas.addEventListener('mouseup', handleMouseUp)
+	timeAlgorithms()
 }
 
 /**
@@ -76,7 +77,8 @@ function draw() {
 	algorithms.forEach(({
 		name,
 		handler,
-		color
+		color,
+		time
 	}) => {
 		let globalMaxX = 0,
 			globalMaxY = 0
@@ -102,7 +104,7 @@ function draw() {
 		context.beginPath()
 		context.arc(globalMaxX, globalMaxY, 7, 0, 2 * Math.PI)
 		context.stroke()
-		context.fillText(name, globalMaxX + 5, globalMaxY - 5)
+		context.fillText(name + ' (' + time + 'ms)', globalMaxX + 5, globalMaxY - 5)
 	})
 
 	// Draw points
@@ -190,4 +192,15 @@ function requestDraw() {
 		waitingDraw = true
 		window.requestAnimationFrame(draw)
 	}
+}
+
+/**
+ * Measure execution time for all suplied algorithms
+ */
+function timeAlgorithms() {
+	algorithms.forEach(each => {
+		let startTime = Date.now()
+		each.handler(points, 1e3 * resolution)
+		each.time = Date.now() - startTime
+	})
 }
