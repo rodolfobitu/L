@@ -24,7 +24,15 @@ let width = 0
 /** @var {number} */
 let height = 0
 
-/** @var {Array<{name: string, handler: function(Array<number>):Array<number>}>} */
+/**
+ * @typedef {Object} Algorithm
+ * @property {string} name
+ * @property {function(Array<number>, Array<number>)} handler - fn(points,result)
+ * @property {string} color
+ * @property {number} time
+ */
+
+/** @var {Array<Algorithm>} */
 let algorithms = []
 
 /**
@@ -72,6 +80,22 @@ function draw() {
 
 	// Reset
 	context.clearRect(0, 0, width, height)
+
+	// Draw grid
+	context.save()
+	context.strokeStyle = 'gray'
+	context.setLineDash([5, 5])
+	for (let value = 0; value <= 100; value += 20) {
+		let {
+			y
+		} = toCanvasXY(0, value)
+		context.beginPath()
+		context.moveTo(0, y)
+		context.lineTo(width, y)
+		context.stroke()
+		context.fillText(value, 0, y - 5)
+	}
+	context.restore()
 
 	// Draw interpolations
 	let result = new Array(resolution)
@@ -129,7 +153,7 @@ function draw() {
 function toCanvasXY(i, value) {
 	return {
 		x: width / (numPoints + 1) * (i + 1),
-		y: height * (0.1 + 0.8 * value / 100)
+		y: height * (0.9 - 0.8 * value / 100)
 	}
 }
 
@@ -140,7 +164,7 @@ function toCanvasXY(i, value) {
  * @returns {{i: number, isNear: boolean, value: number}}
  */
 function fromCanvasXY(x, y) {
-	let value = 100 * (y / height - 0.1) / 0.8,
+	let value = 100 * (0.9 - y / height) / 0.8,
 		rawI = x / width * (numPoints + 1) - 1,
 		nearestI = Math.min(Math.max(0, Math.round(rawI)), numPoints - 1)
 	return {
