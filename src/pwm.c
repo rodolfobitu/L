@@ -11,8 +11,8 @@ void pwm_init(void) {
 	T2CON &= 0xFC;	// TMR2 prescaler configuration = 1
 	
 	/* configure initial duty cycle */
- 	pwm_setDutyCycle(0, PWM_LEFT);
- 	pwm_setDutyCycle(0, PWM_RIGHT);
+	pwm_setDutyCycle(PWM_LEFT, 0);
+	pwm_setDutyCycle(PWM_RIGHT, 0);
 
 	/* CCPxM3:CCPxM2 = 11 => PWM mode */
 	CCP1CON |= PWM_MODE_MASK;
@@ -23,7 +23,7 @@ void pwm_init(void) {
 }
 
 /* Set duty cycle (0 - 1023) */
-void pwm_setDutyCycle(unsigned int uiDutyCycle, unsigned char ucDevice) {
+void pwm_setDutyCycle(unsigned char ucDevice, unsigned int uiDutyCycle) {
 	if (ucDevice == PWM_RIGHT) {
 		CCPR1L = uiDutyCycle >> 2;
   		CCP1CONbits.DC1B = uiDutyCycle & 0b11;

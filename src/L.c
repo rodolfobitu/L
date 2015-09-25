@@ -136,8 +136,8 @@ void main(void) {
 		LED_2 = (uiLeftSpeed >> 2) & 0x1;
 		LED_3 = (uiLeftSpeed >> 3) & 0x1;
 
-		pwm_setDutyCycle(160, PWM_LEFT);
-		pwm_setDutyCycle(200, PWM_RIGHT);
+		pwm_setDutyCycle(PWM_LEFT, 500);
+		pwm_setDutyCycle(PWM_RIGHT, 500);
 
 		/* Wait for period */
 		while(!uiFlagNextPeriod);

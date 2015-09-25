@@ -5,6 +5,6 @@
 #define PWM_RIGHT 1
 
 void pwm_init(void);
-void pwm_setDutyCycle(unsigned int uiDutyCycle, unsigned char ucDevice);
+void pwm_setDutyCycle(unsigned char ucDevice, unsigned int uiDutyCycle);
 
 #endif /* PWM_H */
