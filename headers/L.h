@@ -1,5 +1,6 @@
 #ifndef L_H
 #define L_H
+#define CYCLE_TIME 0.1
 
 /* uC registers definition */
 #include <p18F4550.h>

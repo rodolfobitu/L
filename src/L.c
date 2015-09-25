@@ -2,6 +2,7 @@
 #include "util.h"
 #include "adc.h"
 #include "pwm.h"
+#include "task/velocity.h"
 
 /* uC init configurations */
 
@@ -96,16 +97,9 @@ void L_init(void) {
 	adc_init();
 }
 
-/* Read speed counter, save it and reset it */
-void task_getSpeed(void) {
-	uiLeftSpeed = uiLeftCounter;
-	uiRightSpeed = uiRightCounter;
-	uiLeftCounter = 0;
-	uiRightCounter = 0;
-}
-
 void main(void) {
 	unsigned int i, adcValue;
+	unsigned int uiTest;
 	
 	/* run uC init configs */
 	L_init();
@@ -120,8 +114,8 @@ void main(void) {
 
 	/* main system loop, runs forever */
 
-	while(1) {
-		task_getSpeed();
+	while (1) {
+		velocity_task();
 
 		/* Set IR leds */
 		LED_IR0 = LED_IR_ON;
@@ -130,14 +124,16 @@ void main(void) {
 		/* Read from analog input */
 		adcValue = adc_get(0);
 
-		/* Show result */
-		LED_4 = uiLeftSpeed & 0x1;
-		LED_1 = (uiLeftSpeed >> 1) & 0x1;
-		LED_2 = (uiLeftSpeed >> 2) & 0x1;
-		LED_3 = (uiLeftSpeed >> 3) & 0x1;
+		uiTest = uiRightSpeed;
 
-		pwm_setDutyCycle(PWM_LEFT, 500);
-		pwm_setDutyCycle(PWM_RIGHT, 500);
+		/* Show result */
+		LED_4 = (uiTest >> 1) & 0x1;
+		LED_1 = (uiTest >> 2) & 0x1;
+		LED_2 = (uiTest >> 3) & 0x1;
+		LED_3 = (uiTest >> 4) & 0x1;
+
+		pwm_setDutyCycle(PWM_LEFT, 1022);
+		pwm_setDutyCycle(PWM_RIGHT, 750);
 
 		/* Wait for period */
 		while(!uiFlagNextPeriod);

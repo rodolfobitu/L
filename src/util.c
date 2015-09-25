@@ -8,11 +8,11 @@ count = time [ms] / tick
 timer = 65536 - (Count/prescale)
 
 OR
-timer = 65536 - ( (tempo/ (1 / (FOSC/4))) / ps)
+timer = 65536 - (5000/256)*t
 */
 
-/* timer config for ?ms */
-#define UTIL_TIMER0_RESET_VALUE 		55000
+/* timer config for 3s */
+#define UTIL_TIMER0_RESET_VALUE 		63583
 #define UTIL_TIMER0_RESET_VALUE_HIGH    ((UTIL_TIMER0_RESET_VALUE & 0xff00) >> 8)
 #define UTIL_TIMER0_RESET_VALUE_LOW 	( UTIL_TIMER0_RESET_VALUE & 0x00ff)
 
