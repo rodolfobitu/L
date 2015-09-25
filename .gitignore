@@ -84,3 +84,5 @@ Relatorio/relatorio.log
 Relatorio/relatorio.synctex.gz
 Relatorio/relatorio.aux
 *.log
+*.map
+*.cof

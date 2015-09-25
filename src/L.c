@@ -116,8 +116,7 @@ void main(void) {
 	util_configCyclicExecutive();
 
 	/* init PWM */
-	pwm_init(PWM_LEFT);
-	pwm_init(PWM_RIGHT);
+	pwm_init();
 
 	/* main system loop, runs forever */
 
@@ -132,7 +131,7 @@ void main(void) {
 		adcValue = adc_get(0);
 
 		/* Show result */
-		LED_4 = (uiLeftSpeed >> 0) & 0x1;
+		LED_4 = uiLeftSpeed & 0x1;
 		LED_1 = (uiLeftSpeed >> 1) & 0x1;
 		LED_2 = (uiLeftSpeed >> 2) & 0x1;
 		LED_3 = (uiLeftSpeed >> 3) & 0x1;
