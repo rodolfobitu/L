@@ -2,7 +2,10 @@
 #include "util.h"
 #include "adc.h"
 #include "pwm.h"
+#include "timer0.h"
 #include "task/velocity.h"
+#include "task/calibrate.h"
+
 
 /* uC init configurations */
 
@@ -16,7 +19,7 @@
 #pragma config LVP    = OFF			//Single-Supply ICSP disabled
 
 /* globals */
-volatile unsigned int uiFlagNextPeriod = 0;	// cyclic executive flag
+volatile unsigned int uiTimer0_endPeriod = 0;	// cyclic executive flag
 volatile unsigned int uiLeftCounter = 0;
 volatile unsigned int uiRightCounter = 0;
 
@@ -36,10 +39,7 @@ void isr_HighVector(void) {
 void isr_CyclicExecutive(void) {
 	if (INTCONbits.TMR0IF) {
 		/* set the cyclic executive flag */
-		uiFlagNextPeriod = 1;
-
-		/* reset the cyclic executive counting */
-		util_resetCyclicExecutive();
+		uiTimer0_endPeriod = 1;
 
 		/* acknowledge the interrupt */
 		INTCONbits.TMR0IF = 0;
@@ -94,26 +94,26 @@ void L_init(void) {
 	RIGHT_MOTOR = 1;
 	LEFT_MOTOR = 1;
 
-	adc_init();
+	INTCONbits.GIE = 1;		// enables all unmasked interrupts
+  	INTCONbits.PEIE = 1;	// enables all unmasked peripheral interrupts
 }
 
 void main(void) {
 	unsigned int i, adcValue;
 	unsigned int uiTest;
 	
-	/* run uC init configs */
+	/* Hardware initialization */
 	L_init();
-
-	/* Turn all IR leds on */
-	
-	/* config and start the cyclic executive */
-	util_configCyclicExecutive();
-
-	/* init PWM */
+	timer0_init();
+	adc_init();
 	pwm_init();
 
-	/* main system loop, runs forever */
+	/* Initialization Tasks */
+	calibrate_init();
 
+	/* main system loop, runs forever */
+	
+	timer0_config(100);
 	while (1) {
 		velocity_task();
 
@@ -127,7 +127,7 @@ void main(void) {
 		uiTest = uiRightSpeed;
 
 		/* Show result */
-		LED_4 = (uiTest >> 1) & 0x1;
+		LED_4 = !(LED_4);
 		LED_1 = (uiTest >> 2) & 0x1;
 		LED_2 = (uiTest >> 3) & 0x1;
 		LED_3 = (uiTest >> 4) & 0x1;
@@ -136,7 +136,8 @@ void main(void) {
 		pwm_setDutyCycle(PWM_RIGHT, 750);
 
 		/* Wait for period */
-		while(!uiFlagNextPeriod);
-		uiFlagNextPeriod = 0;
+		while(!uiTimer0_endPeriod);
+	
+		timer0_reset();
 	}
 }

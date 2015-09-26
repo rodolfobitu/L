@@ -2,8 +2,8 @@
 
 #define NUMBER_OF_SAMPLES 10
 
-static int iSamplesRight[NUMBER_OF_SAMPLES];
-static int iSamplesLeft[NUMBER_OF_SAMPLES];
+static int iSamplesRight[NUMBER_OF_SAMPLES]={0};
+static int iSamplesLeft[NUMBER_OF_SAMPLES] = {0};
 static int iIndexRight = 0;
 static int iIndexLeft = 0;
 extern unsigned int uiLeftCounter;

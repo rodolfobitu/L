@@ -102,26 +102,6 @@ unsigned int util_getTimer1Count(void);
 
 
 /* ************************************************ */
-/* Method name: 	   util_configCyclicExecutive   */
-/* Method description: configures the Cyclic Executive*/
-/*                     timer interruption = 100ms   */
-/* Input params:	   n/a 							*/
-/* Outpu params:	   n/a 							*/
-/* ************************************************ */
-void util_configCyclicExecutive(void);
-
-
-/* ************************************************ */
-/* Method name: 	   util_resetCyclicExecutive    */
-/* Method description: reset the TIMER0 high and low*/
-/*                     values                       */
-/* Input params:	   n/a 							*/
-/* Outpu params:	   n/a 							*/
-/* ************************************************ */
-void util_resetCyclicExecutive(void);
-
-
-/* ************************************************ */
 /* Method name: 	   util_convertFromUi2Ascii     */
 /* Method description: Convert from unsigned int to */
 /*                     ASCII                        */
