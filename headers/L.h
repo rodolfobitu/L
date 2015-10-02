@@ -66,4 +66,7 @@
 #define LEFT_MOTOR		PORTCbits.RC1
 #define LEFT_MOTOR_DIR	TRISCbits.RC1
 
+/* IR Sensors */
+#define NUM_OF_SENSORS 6
+
 #endif /* L_H */

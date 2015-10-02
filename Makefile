@@ -1,0 +1,37 @@
+# MPLAB IDE generated this makefile for use with GNU make.
+# Project: L.mcp
+# Date: Fri Oct 02 16:54:56 2015
+
+AS = MPASMWIN.exe
+CC = mcc18.exe
+LD = mplink.exe
+AR = mplib.exe
+RM = rm
+
+L.cof : L.o util.o adc.o pwm.o velocity.o calibrate.o timer0.o
+	$(LD) /p18F4550 /l"C:\Program Files (x86)\Microchip\mplabc18\v3.47\lib" "L.o" "util.o" "adc.o" "pwm.o" "velocity.o" "calibrate.o" "timer0.o" /u_CRUNTIME /u_DEBUG /u_DEBUGCODESTART=0x7dc0 /u_DEBUGCODELEN=0x240 /u_DEBUGDATASTART=0x3f4 /u_DEBUGDATALEN=0xc /o"L.cof" /M"L.map" /W
+
+L.o : src/L.c headers/util.h headers/adc.h headers/pwm.h headers/timer0.h src/L.c headers/L.h ../../../../../Program\ Files\ (x86)/Microchip/mplabc18/v3.47/h/p18F4550.h headers/task/velocity.h headers/task/calibrate.h
+	$(CC) -p=18F4550 /i"C:\Users\ES770A\Documents\GitHub\L\headers" "src\L.c" -fo="L.o" -D__DEBUG -D__MPLAB_DEBUGGER_ICD2=1 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+
+util.o : src/util.c headers/util.h src/util.c headers/L.h ../../../../../Program\ Files\ (x86)/Microchip/mplabc18/v3.47/h/p18F4550.h
+	$(CC) -p=18F4550 /i"C:\Users\ES770A\Documents\GitHub\L\headers" "src\util.c" -fo="util.o" -D__DEBUG -D__MPLAB_DEBUGGER_ICD2=1 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+
+adc.o : src/adc.c headers/adc.h headers/util.h src/adc.c headers/L.h ../../../../../Program\ Files\ (x86)/Microchip/mplabc18/v3.47/h/p18F4550.h
+	$(CC) -p=18F4550 /i"C:\Users\ES770A\Documents\GitHub\L\headers" "src\adc.c" -fo="adc.o" -D__DEBUG -D__MPLAB_DEBUGGER_ICD2=1 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+
+pwm.o : src/pwm.c headers/pwm.h src/pwm.c headers/L.h ../../../../../Program\ Files\ (x86)/Microchip/mplabc18/v3.47/h/p18F4550.h
+	$(CC) -p=18F4550 /i"C:\Users\ES770A\Documents\GitHub\L\headers" "src\pwm.c" -fo="pwm.o" -D__DEBUG -D__MPLAB_DEBUGGER_ICD2=1 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+
+velocity.o : src/task/velocity.c headers/L.h ../../../../../Program\ Files\ (x86)/Microchip/mplabc18/v3.47/h/p18F4550.h
+	$(CC) -p=18F4550 /i"C:\Users\ES770A\Documents\GitHub\L\headers" "src\task\velocity.c" -fo="velocity.o" -D__DEBUG -D__MPLAB_DEBUGGER_ICD2=1 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+
+calibrate.o : src/task/calibrate.c headers/pwm.h headers/adc.h headers/timer0.h src/task/calibrate.c headers/L.h ../../../../../Program\ Files\ (x86)/Microchip/mplabc18/v3.47/h/p18F4550.h
+	$(CC) -p=18F4550 /i"C:\Users\ES770A\Documents\GitHub\L\headers" "src\task\calibrate.c" -fo="calibrate.o" -D__DEBUG -D__MPLAB_DEBUGGER_ICD2=1 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+
+timer0.o : src/timer0.c headers/L.h ../../../../../Program\ Files\ (x86)/Microchip/mplabc18/v3.47/h/p18F4550.h
+	$(CC) -p=18F4550 /i"C:\Users\ES770A\Documents\GitHub\L\headers" "src\timer0.c" -fo="timer0.o" -D__DEBUG -D__MPLAB_DEBUGGER_ICD2=1 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+
+clean : 
+	$(RM) "L.o" "util.o" "adc.o" "pwm.o" "velocity.o" "calibrate.o" "timer0.o" "L.cof" "L.hex"
+

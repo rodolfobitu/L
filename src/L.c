@@ -25,6 +25,8 @@ volatile unsigned int uiRightCounter = 0;
 
 unsigned int uiLeftSpeed = 0;
 unsigned int uiRightSpeed = 0;
+/* Expected min (at 0) and max (at 1) values for each sensor */
+unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 
 /* setup the interruption */
 void isr_CyclicExecutive();
