@@ -9,7 +9,7 @@ extern unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 
 void calibrate_init(void){
 	int i, j;
-
+	char cClockwise;
 	/*
 		We keep track of the two greatest and lowest values
 		This gives us space for 1 noisy (bad) sample
@@ -29,11 +29,15 @@ void calibrate_init(void){
 	}
 
 	/* Turn right for 3s */
-	pwm_setDutyCycle(PWM_LEFT, 800);
-	pwm_setDutyCycle(PWM_RIGHT, 0);
-	timer0_config(3000);
-
-	while (!uiTimer0_endPeriod) {
+	pwm_setDirection(PWM_LEFT, PWM_FORWARD);
+	pwm_setDutyCycle(PWM_LEFT, 825);
+	pwm_setDirection(PWM_RIGHT, PWM_BACKWARDS);
+	pwm_setDutyCycle(PWM_RIGHT, 850);
+	timer0_config(500);
+	
+	cClockwise = 1;
+	while (1) {
+		 
 		unsigned int uiValueRead;
 		for (i = 0; i < NUM_OF_SENSORS ; i++) {
 			uiValueRead = adc_get(i);
@@ -56,8 +60,21 @@ void calibrate_init(void){
 				}
 			}
 		}
+		if (uiTimer0_endPeriod) {
+			if (cClockwise) {
+				cClockwise = 0;
+				pwm_setDirection(PWM_LEFT, PWM_BACKWARDS);
+				pwm_setDutyCycle(PWM_LEFT, 825);
+				pwm_setDirection(PWM_RIGHT, PWM_FORWARD);
+				pwm_setDutyCycle(PWM_RIGHT, 850);
+				timer0_config(350);
+			} else {
+				break;
+			}
+		}
 	}
-
+	pwm_setDutyCycle(PWM_LEFT, 0);
+	pwm_setDutyCycle(PWM_RIGHT, 0);
 	/* Export those values to global scope
 	 * They'll be used by the line detection task
 	*/
@@ -66,5 +83,5 @@ void calibrate_init(void){
 		uiSensorLimits[i][1] = uiMax[i][1];
 	}
 
-	i = 5;
+
 }

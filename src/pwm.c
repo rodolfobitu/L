@@ -20,6 +20,9 @@ void pwm_init(void) {
 	 
 	/* enable TMR2 */
 	T2CONbits.TMR2ON = 1;
+
+	pwm_setDirection(PWM_RIGHT, PWM_FORWARD);
+	pwm_setDirection(PWM_LEFT, PWM_BACKWARDS);
 }
 
 /* Set duty cycle (0 - 1023) */
@@ -33,4 +36,24 @@ void pwm_setDutyCycle(unsigned char ucDevice, unsigned int uiDutyCycle) {
 		CCPR2L = uiDutyCycle >> 2;
   		CCP2CONbits.DC2B = uiDutyCycle & 0b11;
  	}	
+}
+
+void pwm_setDirection(unsigned char ucDevice, char foward) {
+	if (ucDevice == PWM_RIGHT) {
+		if (foward) {
+			RIGHT_CW = 1;
+			RIGHT_CCW = 0;
+		} else {
+			RIGHT_CW = 0;
+			RIGHT_CCW = 1;
+		}
+	} else if (ucDevice == PWM_LEFT) {
+		if (foward) {
+			LEFT_CW = 1;
+			LEFT_CCW = 0;
+		} else {
+			LEFT_CW = 0;
+			LEFT_CCW = 1;
+		}
+	}
 }

@@ -84,11 +84,6 @@ void L_init(void) {
 	LEFT_CW_DIR = OUTPUT;
 	LEFT_CCW_DIR = OUTPUT;
 
-	RIGHT_CW = 1;
-	RIGHT_CCW = 0;
-	LEFT_CW = 1;
-	LEFT_CCW = 0;
-
 	/* Set up motor pins */
 	RIGHT_MOTOR_DIR = OUTPUT;
 	LEFT_MOTOR_DIR = OUTPUT;
@@ -134,8 +129,8 @@ void main(void) {
 		LED_2 = (uiTest >> 3) & 0x1;
 		LED_3 = (uiTest >> 4) & 0x1;
 
-		pwm_setDutyCycle(PWM_LEFT, 1022);
-		pwm_setDutyCycle(PWM_RIGHT, 750);
+		pwm_setDutyCycle(PWM_LEFT, 0);
+		pwm_setDutyCycle(PWM_RIGHT, 0);
 
 		/* Wait for period */
 		while(!uiTimer0_endPeriod);
