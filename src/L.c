@@ -110,8 +110,8 @@ void main(void) {
 	adc_init();
 	pwm_init();
 
-	/* Initialization Tasks */
-	calibrate_init();
+	/* Start-up Tasks */
+	calibrate_run();
 
 	/* main system loop, runs forever */
 	

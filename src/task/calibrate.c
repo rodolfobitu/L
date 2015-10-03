@@ -1,15 +1,38 @@
 #include "L.h"
 #include "pwm.h"
 #include "adc.h"
-#include "timer0.h"
 #include "util.h"
 
-extern volatile unsigned int uiTimer0_endPeriod;
+/* Number of encoder steps to turn each time */
+#define CALIBRATE_STEPS 3
+
+/* PWM duty cycle for each motor */
+#define CALIBRATE_LEFT_PWM 825
+#define CALIBRATE_RIGHT_PWM 850
+
+/* Output */
 extern unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 
-void calibrate_init(void){
+/* Internal */
+extern unsigned int uiLeftCounter;
+extern unsigned int uiRightCounter;
+
+/*
+ * The robot should be put initially aligned with the line in the ground
+ * On reset, it'll make 3 moves:
+ * 1) rotate clockwise `CALIBRATE_STEPS` in each wheel
+ * 2) rotate counter-clockwise 2*`CALIBRATE_STEPS` in each wheel
+ * 3) rotate clockwise again `CALIBRATE_STEPS` in each wheel
+ * Throught the movement, we'll read each sensor to figure out the operational ranges of them
+ * After this, the result will be available on `uiSensorLimits` and
+ * the robot will be aligned to the line again
+ */
+void calibrate_run(void) {
 	int i, j;
-	char cClockwise;
+	/* 1, 2 or 3: as noted above */
+	char cMoveType;
+	/* Counter goal for each part of the move */
+	unsiged int uiGoal;
 	/*
 		We keep track of the two greatest and lowest values
 		This gives us space for 1 noisy (bad) sample
@@ -28,18 +51,22 @@ void calibrate_init(void){
 		}
 	}
 
-	/* Turn right for 3s */
+	/* First move: clockwise */
+	cMoveType = 1;
 	pwm_setDirection(PWM_LEFT, PWM_FORWARD);
-	pwm_setDutyCycle(PWM_LEFT, 825);
+	pwm_setDutyCycle(PWM_LEFT, CALIBRATE_LEFT_PWM);
 	pwm_setDirection(PWM_RIGHT, PWM_BACKWARDS);
-	pwm_setDutyCycle(PWM_RIGHT, 850);
-	timer0_config(500);
+	pwm_setDutyCycle(PWM_RIGHT, CALIBRATE_RIGHT_PWM);
+	uiGoal = CALIBRATE_STEPS;
+	uiLeftCounter = uiRightCounter = 0;
 	
-	cClockwise = 1;
 	while (1) {
-		 
 		unsigned int uiValueRead;
-		for (i = 0; i < NUM_OF_SENSORS ; i++) {
+		
+		/*
+		 * Read ADC values and update the ranges
+		 */
+		for (i = 0; i < NUM_OF_SENSORS; i++) {
 			uiValueRead = adc_get(i);
 			
 			/* Save the read value if it's in the 2 extremes (as we know now) */
@@ -60,28 +87,48 @@ void calibrate_init(void){
 				}
 			}
 		}
-		if (uiTimer0_endPeriod) {
-			if (cClockwise) {
-				cClockwise = 0;
+		
+		/* Turn of a wheel if it has met the goal */
+		if (uiLeftCounter >= uiGoal) {
+			pwm_setDutyCycle(PWM_LEFT, 0);
+		}
+		if (uiRightCounter >= uiGoal) {
+			pwm_setDutyCycle(PWM_RIGHT, 0);
+		}
+		
+		if (uiLeftCounter >= uiGoal && uiRightCounter >= uiGoal) {
+			/* Next part of the move */
+			pwm_setDutyCycle(PWM_LEFT, CALIBRATE_LEFT_PWM);
+			pwm_setDutyCycle(PWM_RIGHT, CALIBRATE_RIGHT_PWM);
+			uiLeftCounter = uiRightCounter = 0;
+			
+			if (cMoveType == 1) {
+				/* Counter clockwise */
+				cMoveType = 2;
 				pwm_setDirection(PWM_LEFT, PWM_BACKWARDS);
-				pwm_setDutyCycle(PWM_LEFT, 825);
 				pwm_setDirection(PWM_RIGHT, PWM_FORWARD);
-				pwm_setDutyCycle(PWM_RIGHT, 850);
-				timer0_config(350);
+				uiGoal = 2 * CALIBRATE_STEPS;
+			} else if (cMoveType == 2) {
+				/* Clockwise again */
+				cMoveType = 3;
+				pwm_setDirection(PWM_LEFT, PWM_FORWARD);
+				pwm_setDirection(PWM_RIGHT, PWM_BACKWARDS);
+				uiGoal = CALIBRATE_STEPS;
 			} else {
+				/* Done! */
+				pwm_setDutyCycle(PWM_LEFT, 0);
+				pwm_setDutyCycle(PWM_RIGHT, 0);
 				break;
 			}
 		}
 	}
-	pwm_setDutyCycle(PWM_LEFT, 0);
-	pwm_setDutyCycle(PWM_RIGHT, 0);
-	/* Export those values to global scope
+	
+	/*
+	 * Export those values to global scope
 	 * They'll be used by the line detection task
-	*/
+	 */
 	for (i = 0; i < NUM_OF_SENSORS; i++) {
 		uiSensorLimits[i][0] = uiMin[i][1];
 		uiSensorLimits[i][1] = uiMax[i][1];
 	}
-
-
 }
