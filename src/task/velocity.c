@@ -1,54 +1,37 @@
 #include "L.h"
 
-#define NUMBER_OF_SAMPLES 10
+#define VELOCITY_NUM_SAMPLES 10
 
-static int iSamplesRight[NUMBER_OF_SAMPLES]={0};
-static int iSamplesLeft[NUMBER_OF_SAMPLES] = {0};
-static int iIndexRight = 0;
-static int iIndexLeft = 0;
-extern unsigned int uiLeftCounter;
-extern unsigned int uiRightCounter;
+/* Output data */
 extern unsigned int uiLeftSpeed;
 extern unsigned int uiRightSpeed;
 
+/* Internal usage */
+extern unsigned int uiLeftCounter;
+extern unsigned int uiRightCounter;
+static int iSamplesRight[VELOCITY_NUM_SAMPLES] = {0};
+static int iSamplesLeft[VELOCITY_NUM_SAMPLES] = {0};
+static int iIndex = 0;
 
-unsigned int getSpeedRight(void){
-	
+unsigned int velocity_calcSpeed(int iSamples[]) {
 	int iSamplesSum = 0;
 	int i;
-	for (i=0; i<NUMBER_OF_SAMPLES;i++){
-		iSamplesSum += iSamplesRight[i];
+	for (i=0; i<VELOCITY_NUM_SAMPLES; i++) {
+		iSamplesSum += iSamples[i];
 	}
-	return (float)iSamplesSum/(float)(NUMBER_OF_SAMPLES*CYCLE_TIME);
-
+	return (float)iSamplesSum / (float)(VELOCITY_NUM_SAMPLES * CYCLE_TIME);
 }
 
-unsigned int getSpeedLeft(void){
-
-	int iSamplesSum = 0;
-	int i;
-	for (i=0; i<NUMBER_OF_SAMPLES;i++){
-		iSamplesSum += iSamplesLeft[i];
-	}
-	return (float)iSamplesSum/(float)(NUMBER_OF_SAMPLES*CYCLE_TIME);
-
-}
-
-void velocity_task(void){
-
-	iSamplesRight[iIndexRight++] = uiRightCounter;
-	if (iIndexRight == NUMBER_OF_SAMPLES){ 
-		iIndexRight = 0;
-	}
-	iSamplesLeft[iIndexLeft++] = uiLeftCounter;
-	if (iIndexLeft == NUMBER_OF_SAMPLES){
-		iIndexLeft = 0;
+void velocity_task(void) {
+	iSamplesLeft[iIndex] = uiLeftCounter;
+	iSamplesRight[iIndex] = uiRightCounter;
+	iIndex++;
+	if (iIndex == VELOCITY_NUM_SAMPLES){ 
+		iIndex = 0;
 	}
 	uiRightCounter = 0;
 	uiLeftCounter = 0;
 
-	uiLeftSpeed = getSpeedLeft();	
-	uiRightSpeed = getSpeedRight();
-
+	uiLeftSpeed = velocity_calcSpeed(iSamplesLeft);
+	uiRightSpeed = velocity_calcSpeed(iSamplesRight);
 }
-

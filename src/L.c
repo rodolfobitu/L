@@ -23,8 +23,13 @@ volatile unsigned int uiTimer0_endPeriod = 0;	// cyclic executive flag
 volatile unsigned int uiLeftCounter = 0;
 volatile unsigned int uiRightCounter = 0;
 
+/*
+ * Calculated speed (averaged over VELOCITY_NUM_SAMPLES),
+ * in encoder steps per second
+ */
 unsigned int uiLeftSpeed = 0;
 unsigned int uiRightSpeed = 0;
+
 /* Expected min (at 0) and max (at 1) values for each sensor */
 unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 
