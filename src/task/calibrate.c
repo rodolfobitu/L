@@ -97,7 +97,8 @@ void calibrate_run(void) {
 		}
 		
 		if (uiLeftCounter >= uiGoal && uiRightCounter >= uiGoal) {
-			/* Next part of the move */
+			/* Next part of the move: wait 500ms and reset PWM */
+			Delay10KTCYx(250);
 			pwm_setDutyCycle(PWM_LEFT, CALIBRATE_LEFT_PWM);
 			pwm_setDutyCycle(PWM_RIGHT, CALIBRATE_RIGHT_PWM);
 			uiLeftCounter = uiRightCounter = 0;
