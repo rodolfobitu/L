@@ -29,12 +29,12 @@ void pwm_init(void) {
 void pwm_setDutyCycle(unsigned char ucDevice, unsigned int uiDutyCycle) {
 	if (ucDevice == PWM_RIGHT) {
 		CCPR1L = uiDutyCycle >> 2;
-  		CCP1CONbits.DC1B = uiDutyCycle & 0b11;
+		CCP1CONbits.DC1B = uiDutyCycle & 0b11;
  	}
  	
 	if (ucDevice == PWM_LEFT) {
 		CCPR2L = uiDutyCycle >> 2;
-  		CCP2CONbits.DC2B = uiDutyCycle & 0b11;
+		CCP2CONbits.DC2B = uiDutyCycle & 0b11;
  	}	
 }
 

@@ -5,20 +5,18 @@ unsigned int uiResetValueHigh;
 unsigned int uiResetValueLow;
 
 
-void timer0_init(void){
-	
+void timer0_init(void) {
 	INTCONbits.TMR0IE = 1; 	// enables TMR0 overflow interrup
-  	
-  	T0CONbits.T08BIT = 0; 	// 16-bit timer
-  	T0CONbits.T0CS = 0; 	// internal clock (FOSC/4)
-  	T0CONbits.PSA = 0; 		// prescaler assigned
-  	T0CONbits.T0PS = 0b111; // 1:256 prescale
-	
+
+	T0CONbits.T08BIT = 0; 	// 16-bit timer
+	T0CONbits.T0CS = 0; 	// internal clock (FOSC/4)
+	T0CONbits.PSA = 0; 		// prescaler assigned
+	T0CONbits.T0PS = 0b111; // 1:256 prescale
 }
 
-void timer0_reset(void){
+void timer0_reset(void) {
 	TMR0H = uiResetValueHigh;
-  	TMR0L = uiResetValueLow;
+	TMR0L = uiResetValueLow;
 	uiTimer0_endPeriod = 0;
 }
 

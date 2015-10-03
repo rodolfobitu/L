@@ -37,7 +37,7 @@ unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 void isr_CyclicExecutive();
 #pragma code high_vector=0x08
 void isr_HighVector(void) {
-  _asm GOTO isr_CyclicExecutive _endasm
+	_asm GOTO isr_CyclicExecutive _endasm
 }
 #pragma code
 
@@ -97,7 +97,7 @@ void L_init(void) {
 	LEFT_MOTOR = 1;
 
 	INTCONbits.GIE = 1;		// enables all unmasked interrupts
-  	INTCONbits.PEIE = 1;	// enables all unmasked peripheral interrupts
+	INTCONbits.PEIE = 1;	// enables all unmasked peripheral interrupts
 }
 
 void main(void) {
