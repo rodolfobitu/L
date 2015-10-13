@@ -32,7 +32,7 @@ void calibrate_run(void) {
 	/* 1, 2 or 3: as noted above */
 	char cMoveType;
 	/* Counter goal for each part of the move */
-	unsiged int uiGoal;
+	unsigned int uiGoal;
 	/*
 		We keep track of the two greatest and lowest values
 		This gives us space for 1 noisy (bad) sample
@@ -98,7 +98,7 @@ void calibrate_run(void) {
 		
 		if (uiLeftCounter >= uiGoal && uiRightCounter >= uiGoal) {
 			/* Next part of the move: wait 500ms and reset PWM */
-			Delay10KTCYx(250);
+			util_genDelay100MS();
 			pwm_setDutyCycle(PWM_LEFT, CALIBRATE_LEFT_PWM);
 			pwm_setDutyCycle(PWM_RIGHT, CALIBRATE_RIGHT_PWM);
 			uiLeftCounter = uiRightCounter = 0;
