@@ -9,19 +9,26 @@ void util_genDelay1MS(void) {
 		Nop();
 		Nop();
 		Nop();
+		Nop();
+		Nop();
+		Nop();
+		Nop();
+		Nop();
+		Nop();
+		Nop();
 	}
 }
 
-void util_genDelay10MS(void) {
-	char i;
-	for (i=0; i<10; i++) {
+void util_genDelay10MS(char cN) {
+	int i, cMax = 10*cN;
+	for(i = 0; i < cMax; i++) {
 		util_genDelay1MS();
 	}
 }
 
-void util_genDelay100MS(void) {
-	char i;
-	for(i=0; i<10; i++) {
-		util_genDelay10MS();
+void util_genDelay100MS(char cN) {
+	int i, cMax = 10*cN;
+	for(i = 0; i < cMax; i++) {
+		util_genDelay10MS(1);
 	}
 }

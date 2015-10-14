@@ -7,8 +7,8 @@
 #define CALIBRATE_STEPS 3
 
 /* PWM duty cycle for each motor */
-#define CALIBRATE_LEFT_PWM 825
-#define CALIBRATE_RIGHT_PWM 850
+#define CALIBRATE_LEFT_PWM 800
+#define CALIBRATE_RIGHT_PWM 825
 
 /* Output */
 extern unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
@@ -98,7 +98,7 @@ void calibrate_run(void) {
 		
 		if (uiLeftCounter >= uiGoal && uiRightCounter >= uiGoal) {
 			/* Next part of the move: wait 500ms and reset PWM */
-			util_genDelay100MS();
+			util_genDelay100MS(5);
 			pwm_setDutyCycle(PWM_LEFT, CALIBRATE_LEFT_PWM);
 			pwm_setDutyCycle(PWM_RIGHT, CALIBRATE_RIGHT_PWM);
 			uiLeftCounter = uiRightCounter = 0;
