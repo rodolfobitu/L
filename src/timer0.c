@@ -22,24 +22,19 @@ void timer0_reset(void) {
 
 void timer0_config(unsigned short long uslTimeMs){
 	/*
-	FOSC = 20 MHz
+	FOSC = 48 MHz
 	tick = 1 / (FOSC/4)
 	count = time [ms] / tick
 	timer = 65536 - (Count/prescale)
 
 		OR
-	timer = 65536 - (5000/256)*t
+	timer = 65536 - (12000/256)*t
 	*/
 
-	unsigned short long uslTime = (unsigned short long)65536 - ((unsigned short long)5000*uslTimeMs/(unsigned short long)256);
+	unsigned short long uslTime = (unsigned short long)65536 - ((unsigned short long)12000*uslTimeMs/(unsigned short long)256);
 	uiResetValueHigh = ((uslTime & 0xff00) >> 8);
 	uiResetValueLow =  (uslTime & 0x00ff);
-
-	//uiResetValueHigh = ((6942 & 0xff00) >> 8);
-//	uiResetValueLow =  (6942 & 0x00ff);
 
 	T0CONbits.TMR0ON = 1; 	// enables TMR0
 	timer0_reset();
 }
-
-

@@ -6,18 +6,6 @@
 #include "task/velocity.h"
 #include "task/calibrate.h"
 
-
-/* uC init configurations */
-
-/* uC @ 48 MHz */
-#pragma config FOSC   = HS
-#pragma config IESO   = OFF			//Oscillator Switchover mode disabled
-#pragma config PWRT   = ON			//Power-up Timer enabled
-#pragma config BOR    = ON			//Brown-out Reset enabled
-#pragma config BORV   = 0			//Brown-out Reset to maximum setting
-#pragma config WDT    = OFF			//Watchdog timer disabled
-#pragma config LVP    = OFF			//Single-Supply ICSP disabled
-
 /* globals */
 volatile unsigned int uiTimer0_endPeriod = 0;	// cyclic executive flag
 volatile unsigned int uiLeftCounter = 0;
