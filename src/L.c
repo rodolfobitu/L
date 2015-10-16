@@ -22,6 +22,18 @@ unsigned int uiRightSpeed = 0;
 /* Expected min (at 0) and max (at 1) values for each sensor */
 unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 
+/*
+#pragma config FOSC   = HSPLL_HS
+#pragma config PLLDIV = 5
+#pragma config CPUDIV = OSC1_PLL2
+#pragma config IESO   = OFF                    //Oscillator Switchover mode disabled
+#pragma config PWRT   = ON                     //Power-up Timer enabled
+#pragma config BOR    = ON                     //Brown-out Reset enabled
+#pragma config BORV   = 0                      //Brown-out Reset to maximum setting
+#pragma config WDT    = OFF                    //Watchdog timer disabled
+#pragma config LVP    = OFF                    //Single-Supply ICSP disabled
+*/
+
 /* setup the interruption */
 void isr_CyclicExecutive();
 #pragma code high_vector=0x08
@@ -110,19 +122,23 @@ void main(void) {
 
 		/* Show result */
 		LED_4 = LED_1 = LED_2 = LED_3 = LED_OFF;
-		if (fPos < -0.67) {
-			LED_4 = LED_ON;
-		} else if (fPos < -0.33) {
-			LED_4 = LED_ON;
-			LED_1 = LED_ON;
-		} else if (fPos < 0.33) {
-			LED_1 = LED_ON;
-			LED_2 = LED_ON;
-		} else if (fPos < 0.67) {
-			LED_2 = LED_ON;
+		if (fPos < -0.71) {
 			LED_3 = LED_ON;
+		} else if (fPos < -0.43) {
+			LED_3 = LED_ON;
+			LED_2 = LED_ON;
+		} else if (fPos < -0.14) {
+			LED_2 = LED_ON;
+		} else if (fPos < 0.14) {
+			LED_2 = LED_ON;
+			LED_1 = LED_ON;
+		} else if (fPos < 0.43) {
+			LED_1 = LED_ON;
+		} else if (fPos < 0.71) {
+			LED_1 = LED_ON;
+			LED_4 = LED_ON;
 		} else {
-			LED_3 = LED_ON;
+			LED_4 = LED_ON;
 		}
 
 		/* Wait for period */
