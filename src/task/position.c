@@ -1,7 +1,7 @@
 #include "L.h"
 #include "adc.h"
 
-unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
+extern unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 
 float position_get(void) {
 	unsigned int uiRawValue;
@@ -9,8 +9,6 @@ float position_get(void) {
 	float fValue,
 		fValues[NUM_OF_SENSORS],
 		fD[NUM_OF_SENSORS],
-		fC2[NUM_OF_SENSORS],
-		fC3[NUM_OF_SENSORS],
 		fMinValue = 100,
 		fMinPos;
 	
@@ -87,7 +85,7 @@ float position_get(void) {
 		float fC0 = fValues[cChannel],
 			fC1 = fD[cChannel],
 			fC2 = 3 * (fValues[cChannel + 1] - fC0) - 2 * fC1 - fD[cChannel + 1],
-			fC3[cChannel] = 2 * (fC0 - fValues[cChannel + 1]) + fC1 + fD[cChannel + 1],
+			fC3 = 2 * (fC0 - fValues[cChannel + 1]) + fC1 + fD[cChannel + 1],
 			fT;
 		
 		for (fT = 0; fT <= 1; fT += 0.01) {

@@ -14,7 +14,7 @@ void adc_init(void) {
 	/* acquistion time */
 	ADCON2bits.ACQT = 0b010;  // 4 TAD
 	/* converstion clock */
-	ADCON2bits.ADCS = 0b101;  // 16 TOSC
+	ADCON2bits.ADCS = 0b110;  // 64 TOSC
 }
 
 // Turn on ir led for cLed and turn off other ir leds
