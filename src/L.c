@@ -5,6 +5,7 @@
 #include "timer0.h"
 #include "task/velocity.h"
 #include "task/calibrate.h"
+#include "task/position.h"
 
 /* globals */
 volatile unsigned int uiTimer0_endPeriod = 0;	// cyclic executive flag
@@ -89,8 +90,7 @@ void L_init(void) {
 }
 
 void main(void) {
-	unsigned int i, adcValue;
-	unsigned int uiTest;
+	float fPos;
 	
 	/* Hardware initialization */
 	L_init();
@@ -106,24 +106,24 @@ void main(void) {
 	timer0_config(100);
 	while (1) {
 		velocity_task();
-
-		/* Set IR leds */
-		LED_IR0 = LED_IR_ON;
-		LED_IR1 = LED_IR2 = LED_IR3 = LED_IR4 = LED_IR5 = LED_IR_OFF;
-
-		/* Read from analog input */
-		adcValue = adc_get(0);
-
-		uiTest = uiRightSpeed;
+		fPos = position_get();
 
 		/* Show result */
-		LED_4 = !(LED_4);
-		LED_1 = (uiTest >> 2) & 0x1;
-		LED_2 = (uiTest >> 3) & 0x1;
-		LED_3 = (uiTest >> 4) & 0x1;
-
-		pwm_setDutyCycle(PWM_LEFT, 0);
-		pwm_setDutyCycle(PWM_RIGHT, 0);
+		LED_4 = LED_1 = LED_2 = LED_3 = LED_OFF;
+		if (fPos < -0.67) {
+			LED_4 = LED_ON;
+		} else if (fPos < -0.33) {
+			LED_4 = LED_ON;
+			LED_1 = LED_ON;
+		} else if (fPos < 0.33) {
+			LED_1 = LED_ON;
+			LED_2 = LED_ON;
+		} else if (fPos < 0.67) {
+			LED_2 = LED_ON;
+			LED_3 = LED_ON;
+		} else {
+			LED_3 = LED_ON;
+		}
 
 		/* Wait for period */
 		while(!uiTimer0_endPeriod);

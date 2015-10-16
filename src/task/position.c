@@ -9,7 +9,7 @@ float position_get(void) {
 	float fValue,
 		fValues[NUM_OF_SENSORS],
 		fD[NUM_OF_SENSORS],
-		fMinValue = 100,
+		fMinValue = 100.0,
 		fMinPos;
 	
 	/* Read each ADC and normalize the result */
@@ -81,18 +81,18 @@ float position_get(void) {
 	 * Y[i](t) = fC0[i] + fC1[i] * t + fC2[i] * t^2 + fC3[i] * t^3
 	 * Where fC0 = fValues, fC1 = D and fC2, fC3 depend on fValues and D
 	 */
-	for (cChannel = 0; cChannel < NUM_OF_SENSORS; cChannel++) {
+	for (cChannel = 0; cChannel < NUM_OF_SENSORS - 1; cChannel++) {
 		float fC0 = fValues[cChannel],
 			fC1 = fD[cChannel],
 			fC2 = 3 * (fValues[cChannel + 1] - fC0) - 2 * fC1 - fD[cChannel + 1],
 			fC3 = 2 * (fC0 - fValues[cChannel + 1]) + fC1 + fD[cChannel + 1],
 			fT;
 		
-		for (fT = 0; fT <= 1; fT += 0.01) {
+		for (fT = 0.0; fT <= 1.0; fT += 0.1) {
 			fValue = fC0 + (fC1 + (fC2 + fC3 * fT) * fT) * fT;
 			if (fValue < fMinValue) {
 				fMinValue = fValue;
-				fMinPos = ((float)cChannel + fT) / 3.0 - 1.0;
+				fMinPos = ((float)cChannel + fT) / 2.5 - 1.0;
 			}
 		}
 	}
