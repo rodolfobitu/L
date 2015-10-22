@@ -8,4 +8,7 @@
  */
 void calibrate_run(void);
 
+/* Fill `uiSensorLimits` with mock values */
+void calibrate_runMock(void);
+
 #endif /* CALIBRATE_H */

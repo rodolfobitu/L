@@ -7,10 +7,18 @@
 #include "task/calibrate.h"
 #include "task/position.h"
 
-/* globals */
+/*
+ * GLOBALS
+ */
 volatile unsigned int uiTimer0_endPeriod = 0;	// cyclic executive flag
 volatile unsigned int uiLeftCounter = 0;
 volatile unsigned int uiRightCounter = 0;
+
+/* A value from -1 to 1 (0 = in the middle) */
+float fPosition = 0;
+
+/* A value from 0 to 1 (1 = very confident) */
+float fPositionConfidence = 0;
 
 /*
  * Calculated speed (averaged over VELOCITY_NUM_SAMPLES),
@@ -102,8 +110,6 @@ void L_init(void) {
 }
 
 void main(void) {
-	float fPos;
-	
 	/* Hardware initialization */
 	L_init();
 	timer0_init();
@@ -118,23 +124,23 @@ void main(void) {
 	timer0_config(100);
 	while (1) {
 		velocity_task();
-		fPos = position_get();
+		position_get();
 
 		/* Show result */
 		LED_4 = LED_1 = LED_2 = LED_3 = LED_OFF;
-		if (fPos < -0.71) {
+		if (fPosition < -0.71) {
 			LED_3 = LED_ON;
-		} else if (fPos < -0.43) {
+		} else if (fPosition < -0.43) {
 			LED_3 = LED_ON;
 			LED_2 = LED_ON;
-		} else if (fPos < -0.14) {
+		} else if (fPosition < -0.14) {
 			LED_2 = LED_ON;
-		} else if (fPos < 0.14) {
+		} else if (fPosition < 0.14) {
 			LED_2 = LED_ON;
 			LED_1 = LED_ON;
-		} else if (fPos < 0.43) {
+		} else if (fPosition < 0.43) {
 			LED_1 = LED_ON;
-		} else if (fPos < 0.71) {
+		} else if (fPosition < 0.71) {
 			LED_1 = LED_ON;
 			LED_4 = LED_ON;
 		} else {

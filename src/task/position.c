@@ -1,9 +1,11 @@
 #include "L.h"
 #include "adc.h"
+#include "task/position.h"
 
 extern unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
+extern float fPosition;
 
-float position_get(void) {
+void position_get(void) {
 	unsigned int uiRawValue;
 	char cChannel;
 	float fValue,
@@ -97,5 +99,5 @@ float position_get(void) {
 		}
 	}
 	
-	return fMinPos;
+	fPosition = fMinPos;
 }
