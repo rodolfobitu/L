@@ -117,7 +117,7 @@ void main(void) {
 	pwm_init();
 
 	/* Start-up Tasks */
-	calibrate_runMock();
+	calibrate_run();
 
 	/* main system loop, runs forever */
 	

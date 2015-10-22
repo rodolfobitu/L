@@ -45,7 +45,7 @@ void turnOnLed(char cLed){
 unsigned int adc_get(char cChannel) {
 	unsigned int uiLow, uiHigh;
 	turnOnLed(cChannel);
-	util_genDelay1MS();
+	util_genDelay1MS(1);
 
 	/* Select channel and start convertion */
 	ADCON0bits.CHS = cChannel;

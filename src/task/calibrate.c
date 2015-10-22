@@ -59,7 +59,7 @@ void calibrate_run(void) {
 	pwm_setDutyCycle(PWM_RIGHT, CALIBRATE_RIGHT_PWM);
 	uiGoal = CALIBRATE_STEPS;
 	uiLeftCounter = uiRightCounter = 0;
-	LED_4 = LED_ON;
+	LED_4 = LED_1 = LED_ON;
 	
 	while (1) {
 		unsigned int uiValueRead;
@@ -92,9 +92,11 @@ void calibrate_run(void) {
 		/* Turn of a wheel if it has met the goal */
 		if (uiLeftCounter >= uiGoal) {
 			pwm_setDutyCycle(PWM_LEFT, 0);
+			LED_3 = LED_1 = LED_OFF;
 		}
 		if (uiRightCounter >= uiGoal) {
 			pwm_setDutyCycle(PWM_RIGHT, 0);
+			LED_2 = LED_4 = LED_OFF;
 		}
 		
 		if (uiLeftCounter >= uiGoal && uiRightCounter >= uiGoal) {
@@ -110,21 +112,18 @@ void calibrate_run(void) {
 				pwm_setDirection(PWM_LEFT, PWM_BACKWARDS);
 				pwm_setDirection(PWM_RIGHT, PWM_FORWARD);
 				uiGoal = 2 * CALIBRATE_STEPS;
-				LED_4 = LED_OFF;
-				LED_3 = LED_ON;
+				LED_3 = LED_2 = LED_ON;
 			} else if (cMoveType == 2) {
 				/* Clockwise again */
 				cMoveType = 3;
 				pwm_setDirection(PWM_LEFT, PWM_FORWARD);
 				pwm_setDirection(PWM_RIGHT, PWM_BACKWARDS);
 				uiGoal = CALIBRATE_STEPS;
-				LED_3 = LED_OFF;
-				LED_4 = LED_ON;
+				LED_4 = LED_1 = LED_ON;
 			} else {
 				/* Done! */
 				pwm_setDutyCycle(PWM_LEFT, 0);
 				pwm_setDutyCycle(PWM_RIGHT, 0);
-				LED_4 = LED_OFF;
 				break;
 			}
 		}
