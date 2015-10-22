@@ -139,3 +139,11 @@ void calibrate_run(void) {
 		uiSensorLimits[i][1] = uiMax[i][1];
 	}
 }
+
+void calibrate_runMock(void) {
+	char i;
+	for (i = 0; i < NUM_OF_SENSORS; i++) {
+		uiSensorLimits[i][0] = 100;
+		uiSensorLimits[i][1] = 500;
+	}
+}
