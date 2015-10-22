@@ -2,6 +2,8 @@
 #include "adc.h"
 #include "task/position.h"
 
+#define POSITION_MIN_CONFIDENCE 0.4
+
 extern unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 extern float fPosition;
 
@@ -12,6 +14,7 @@ void position_get(void) {
 		fValues[NUM_OF_SENSORS],
 		fD[NUM_OF_SENSORS],
 		fMinValue = 100.0,
+		fMaxValue = 0.0,
 		fMinPos;
 	
 	/* Read each ADC and normalize the result */
@@ -20,10 +23,10 @@ void position_get(void) {
 			fMax = (float)uiSensorLimits[cChannel][1];
 		uiRawValue = adc_get(cChannel);
 		fValue = ((float)uiRawValue - fMin) / (fMax - fMin);
-		if (fValue > 1) {
-			fValue = 1;
-		} else if (fValue < 0) {
-			fValue = 0;
+		if (fValue > 1.0) {
+			fValue = 1.0;
+		} else if (fValue < 0.0) {
+			fValue = 0.0;
 		}
 		fValues[cChannel] = fValue;
 	}
@@ -96,8 +99,14 @@ void position_get(void) {
 				fMinValue = fValue;
 				fMinPos = ((float)cChannel + fT) / 2.5 - 1.0;
 			}
+			if (fValue > fMaxValue) {
+				fMaxValue = fValue;
+			}
 		}
 	}
 	
-	fPosition = fMinPos;
+	if (fMaxValue - fMinValue > POSITION_MIN_CONFIDENCE) {
+		/* Only update the position if we are sure about it */
+		fPosition = fMinPos;
+	}
 }

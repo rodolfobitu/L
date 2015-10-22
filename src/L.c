@@ -17,9 +17,6 @@ volatile unsigned int uiRightCounter = 0;
 /* A value from -1 to 1 (0 = in the middle) */
 float fPosition = 0;
 
-/* A value from 0 to 1 (1 = very confident) */
-float fPositionConfidence = 0;
-
 /*
  * Calculated speed (averaged over VELOCITY_NUM_SAMPLES),
  * in encoder steps per second
