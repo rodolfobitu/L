@@ -107,6 +107,9 @@ void L_init(void) {
 }
 
 void main(void) {
+	unsigned int uiTimeLeft;
+	int iGui = 0;
+
 	/* Hardware initialization */
 	L_init();
 	timer0_init();
@@ -120,28 +123,23 @@ void main(void) {
 	
 	timer0_config(100);
 	while (1) {
-		velocity_task();
+		//velocity_task();
 		position_get();
 
 		/* Show result */
 		LED_4 = LED_1 = LED_2 = LED_3 = LED_OFF;
-		if (fPosition < -0.71) {
-			LED_3 = LED_ON;
-		} else if (fPosition < -0.43) {
-			LED_3 = LED_ON;
-			LED_2 = LED_ON;
-		} else if (fPosition < -0.14) {
-			LED_2 = LED_ON;
-		} else if (fPosition < 0.14) {
-			LED_2 = LED_ON;
-			LED_1 = LED_ON;
-		} else if (fPosition < 0.43) {
-			LED_1 = LED_ON;
-		} else if (fPosition < 0.71) {
-			LED_1 = LED_ON;
-			LED_4 = LED_ON;
+		iGui++;
+		uiTimeLeft = timer0_timeLeft();
+		if (iGui % 10) {
+			LED_3 = (uiTimeLeft >> 6) & 0b1;
+			LED_2 = (uiTimeLeft >> 5) & 0b1;
+			LED_1 = (uiTimeLeft >> 4) & 0b1;
+			LED_4 = (uiTimeLeft >> 3) & 0b1;
 		} else {
-			LED_4 = LED_ON;
+			LED_3 = (uiTimeLeft >> 2) & 0b1;
+			LED_2 = (uiTimeLeft >> 1) & 0b1;
+			LED_1 = (uiTimeLeft >> 0) & 0b1;
+			LED_4 = 0;
 		}
 
 		/* Wait for period */
