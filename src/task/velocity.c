@@ -1,10 +1,10 @@
 #include "L.h"
 
-#define VELOCITY_NUM_SAMPLES 10
+#define VELOCITY_NUM_SAMPLES 3
 
 /* Output data */
-extern unsigned int uiLeftSpeed;
-extern unsigned int uiRightSpeed;
+extern float fLeftSpeed;
+extern float fRightSpeed;
 
 /* Internal usage */
 extern unsigned int uiLeftCounter;
@@ -13,7 +13,7 @@ static int iSamplesRight[VELOCITY_NUM_SAMPLES] = {0};
 static int iSamplesLeft[VELOCITY_NUM_SAMPLES] = {0};
 static int iIndex = 0;
 
-unsigned int velocity_calcSpeed(int iSamples[]) {
+float velocity_calcSpeed(int iSamples[]) {
 	int iSamplesSum = 0;
 	int i;
 	for (i=0; i<VELOCITY_NUM_SAMPLES; i++) {
@@ -32,6 +32,6 @@ void velocity_task(void) {
 	uiRightCounter = 0;
 	uiLeftCounter = 0;
 
-	uiLeftSpeed = velocity_calcSpeed(iSamplesLeft);
-	uiRightSpeed = velocity_calcSpeed(iSamplesRight);
+	fLeftSpeed = velocity_calcSpeed(iSamplesLeft);
+	fRightSpeed = velocity_calcSpeed(iSamplesRight);
 }

@@ -1,8 +1,8 @@
 #include "L.h"
 
 extern volatile unsigned int uiTimer0_endPeriod;
-unsigned char uiResetValueHigh;
-unsigned char uiResetValueLow;
+unsigned char cResetValueHigh;
+unsigned char cResetValueLow;
 
 
 void timer0_init(void) {
@@ -15,8 +15,8 @@ void timer0_init(void) {
 }
 
 void timer0_reset(void) {
-	TMR0H = uiResetValueHigh;
-	TMR0L = uiResetValueLow;
+	TMR0H = cResetValueHigh;
+	TMR0L = cResetValueLow;
 	uiTimer0_endPeriod = 0;
 }
 
@@ -33,8 +33,8 @@ void timer0_config(unsigned int uiTimeMs){
 	unsigned short long uslMax = 65536,
 		uslTimeMs = uiTimeMs,
 		uslTime = uslMax - ((unsigned short long)12000 * uslTimeMs) / (unsigned short long)256;
-	uiResetValueHigh = (uslTime >> 8) & 0xFF;
-	uiResetValueLow = uslTime & 0xFF;
+	cResetValueHigh = (uslTime >> 8) & 0xFF;
+	cResetValueLow = uslTime & 0xFF;
 
 	T0CONbits.TMR0ON = 1; // enables TMR0
 	timer0_reset();

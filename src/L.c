@@ -3,6 +3,7 @@
 #include "adc.h"
 #include "pwm.h"
 #include "timer0.h"
+#include "pid.h"
 #include "task/velocity.h"
 #include "task/calibrate.h"
 #include "task/position.h"
@@ -21,8 +22,8 @@ float fPosition = 0;
  * Calculated speed (averaged over VELOCITY_NUM_SAMPLES),
  * in encoder steps per second
  */
-unsigned int uiLeftSpeed = 0;
-unsigned int uiRightSpeed = 0;
+float fLeftSpeed = 0;
+float fRightSpeed = 0;
 
 /* Expected min (at 0) and max (at 1) values for each sensor */
 unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
@@ -109,6 +110,7 @@ void L_init(void) {
 void main(void) {
 	unsigned int uiTimeLeft;
 	int iGui = 0;
+	PID pidLeft, pidRight;
 
 	/* Hardware initialization */
 	L_init();
@@ -117,30 +119,28 @@ void main(void) {
 	pwm_init();
 
 	/* Start-up Tasks */
-	calibrate_run();
-
-	/* main system loop, runs forever */
+	calibrate_runMock();
 	
+	pwm_setDirection(PWM_RIGHT, PWM_FORWARD);
+	pwm_setDirection(PWM_LEFT, PWM_FORWARD);
+	
+	pidLeft = pid_init(53.8, 5.38, 0.0, 0.0, 1023.0);
+	pidRight = pid_init(23.3, 4.6, 0.0, 750.0, 1023.0);
+	
+	/* main system loop, runs forever */
 	timer0_config(100);
 	while (1) {
-		//velocity_task();
-		position_get();
-
-		/* Show result */
-		LED_4 = LED_1 = LED_2 = LED_3 = LED_OFF;
-		iGui++;
-		uiTimeLeft = timer0_timeLeft();
-		if (iGui % 10) {
-			LED_3 = (uiTimeLeft >> 6) & 0b1;
-			LED_2 = (uiTimeLeft >> 5) & 0b1;
-			LED_1 = (uiTimeLeft >> 4) & 0b1;
-			LED_4 = (uiTimeLeft >> 3) & 0b1;
-		} else {
-			LED_3 = (uiTimeLeft >> 2) & 0b1;
-			LED_2 = (uiTimeLeft >> 1) & 0b1;
-			LED_1 = (uiTimeLeft >> 0) & 0b1;
-			LED_4 = 0;
-		}
+		int iVelocityTemp ;
+		float fRef = 11.0;
+		velocity_task();		
+		iVelocityTemp = ((fRef - fRightSpeed)/2.0);
+		iVelocityTemp = iVelocityTemp > 0 ? iVelocityTemp : -iVelocityTemp;
+		LED_4 = (iVelocityTemp >> 3) & 1;
+		LED_1 = (iVelocityTemp >> 2) & 1;
+		LED_2 = (iVelocityTemp >> 1) & 1;
+		LED_3 = (iVelocityTemp >> 0) & 1;
+		
+		pwm_setDutyCycle(PWM_RIGHT, pid_update(&pidRight, fRef, fRightSpeed));
 
 		/* Wait for period */
 		while(!uiTimer0_endPeriod);
