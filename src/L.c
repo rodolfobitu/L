@@ -109,6 +109,8 @@ void L_init(void) {
 	INTCONbits.PEIE = 1;	// enables all unmasked peripheral interrupts
 }
 
+#define MIN_PID 650
+
 void main(void) {
 	unsigned int uiTimeLeft;
 	int iGui = 0;
@@ -126,24 +128,25 @@ void main(void) {
 	pwm_setDirection(PWM_RIGHT, PWM_FORWARD);
 	pwm_setDirection(PWM_LEFT, PWM_FORWARD);
 	
-	pidLeft = pid_init(53.8, 5.38, 0.0, 0.0, 1023.0);
-	pidRight = pid_init(23.3, 4.6, 0.0, 750.0, 1023.0);
+	pidLeft = pid_init(8.28, 0.828, 0.0, 0.0, 1023.0 - MIN_PID);
+	pidRight = pid_init(7.18, 0.718, 0.0, 0.0, 1023.0 - MIN_PID);
 	
 	/* main system loop, runs forever */
 	timer0_config(100);
 	while (1) {
-		int iVelocityTemp ;
-		float fRef = 11.0;
+		int iVelocityTemp;
+		float fRef = 10.0;
 		velocity_task();		
-		iVelocityTemp = ((fRef - fRightSpeed)/2.0);
+		iVelocityTemp = fLeftSpeed - fRef;
 		iVelocityTemp = iVelocityTemp > 0 ? iVelocityTemp : -iVelocityTemp;
 		LED_4 = (iVelocityTemp >> 3) & 1;
 		LED_1 = (iVelocityTemp >> 2) & 1;
 		LED_2 = (iVelocityTemp >> 1) & 1;
 		LED_3 = (iVelocityTemp >> 0) & 1;
 		
-		pwm_setDutyCycle(PWM_RIGHT, pid_update(&pidRight, fRef, fRightSpeed));
-
+		pwm_setDutyCycle(PWM_LEFT, MIN_PID + pid_update(&pidLeft, fRef, fLeftSpeed));
+		pwm_setDutyCycle(PWM_RIGHT, MIN_PID + pid_update(&pidRight, fRef, fRightSpeed));
+		
 		/* Wait for period */
 		while(!uiTimer0_endPeriod);
 	
