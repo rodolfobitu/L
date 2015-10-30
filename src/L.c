@@ -61,11 +61,13 @@ void isr_CyclicExecutive(void) {
 	
 	if (INTCON3bits.INT1IF) {
 		uiLeftCounter++;
+		INTCON2bits.INTEDG1 = !INTCON2bits.INTEDG1;
 		INTCON3bits.INT1IF = 0;
 	}
 	
 	if (INTCON3bits.INT2IF) {
 		uiRightCounter++;
+		INTCON2bits.INTEDG2 = !INTCON2bits.INTEDG2;
 		INTCON3bits.INT2IF = 0;
 	}
 }
