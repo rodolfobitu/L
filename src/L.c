@@ -7,6 +7,8 @@
 #include "task/velocity.h"
 #include "task/calibrate.h"
 #include "task/position.h"
+#include "task/pwmControl.h"
+#include "task/velocityControl.h"
 
 /*
  * GLOBALS
@@ -14,6 +16,8 @@
 volatile unsigned int uiTimer0_endPeriod = 0;	// cyclic executive flag
 volatile unsigned int uiLeftCounter = 0;
 volatile unsigned int uiRightCounter = 0;
+float fLeftReference = 0;
+float fRightReference = 0;
 
 /* A value from -1 to 1 (0 = in the middle) */
 float fPosition = 0;
@@ -109,12 +113,7 @@ void L_init(void) {
 	INTCONbits.PEIE = 1;	// enables all unmasked peripheral interrupts
 }
 
-#define MIN_PID 650
-
 void main(void) {
-	unsigned int uiTimeLeft;
-	int iGui = 0;
-	PID pidLeft, pidRight;
 
 	/* Hardware initialization */
 	L_init();
@@ -124,28 +123,22 @@ void main(void) {
 
 	/* Start-up Tasks */
 	calibrate_runMock();
-	
-	pwm_setDirection(PWM_RIGHT, PWM_FORWARD);
-	pwm_setDirection(PWM_LEFT, PWM_FORWARD);
-	
-	pidLeft = pid_init(8.28, 0.828, 0.0, 0.0, 1023.0 - MIN_PID);
-	pidRight = pid_init(7.18, 0.718, 0.0, 0.0, 1023.0 - MIN_PID);
+
+	/* Tasks initialization */
+	pwmControl_init();
+	velocityControl_init();
 	
 	/* main system loop, runs forever */
 	timer0_config(100);
 	while (1) {
-		int iVelocityTemp;
-		float fRef = 10.0;
-		velocity_task();		
-		iVelocityTemp = fLeftSpeed - fRef;
-		iVelocityTemp = iVelocityTemp > 0 ? iVelocityTemp : -iVelocityTemp;
-		LED_4 = (iVelocityTemp >> 3) & 1;
-		LED_1 = (iVelocityTemp >> 2) & 1;
-		LED_2 = (iVelocityTemp >> 1) & 1;
-		LED_3 = (iVelocityTemp >> 0) & 1;
 		
-		pwm_setDutyCycle(PWM_LEFT, MIN_PID + pid_update(&pidLeft, fRef, fLeftSpeed));
-		pwm_setDutyCycle(PWM_RIGHT, MIN_PID + pid_update(&pidRight, fRef, fRightSpeed));
+		velocity_task();		
+		
+		position_task();
+
+		velocityControl_task();
+		
+		pwmControl_task();
 		
 		/* Wait for period */
 		while(!uiTimer0_endPeriod);

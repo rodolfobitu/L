@@ -7,7 +7,7 @@
 extern unsigned int uiSensorLimits[NUM_OF_SENSORS][2];
 extern float fPosition;
 
-void position_get(void) {
+void position_task(void) {
 	unsigned int uiRawValue;
 	char cChannel;
 	float fValue,

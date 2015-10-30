@@ -11,5 +11,4 @@ void pwm_init(void);
 void pwm_setDutyCycle(unsigned char ucDevice, unsigned int uiDutyCycle);
 void pwm_setDirection(unsigned char ucDevice, char foward);
 
-
 #endif /* PWM_H */
