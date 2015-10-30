@@ -122,7 +122,7 @@ void main(void) {
 	pwm_init();
 
 	/* Start-up Tasks */
-	calibrate_runMock();
+	calibrate_run();
 
 	/* Tasks initialization */
 	pwmControl_init();

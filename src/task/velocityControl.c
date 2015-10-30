@@ -2,7 +2,7 @@
 #include "pid.h"
 
 /* Velocity_avg must be less than half of minimum maximum velocity */
-#define VELOCITY_AVG 15.0
+#define VELOCITY_AVG 10.0
 
 /* Input data */
 extern float fPosition;
@@ -15,7 +15,7 @@ PID pid;
 
 void velocityControl_init(void) {
 	float fP = 2 * VELOCITY_AVG / 1.0;
-	pid = pid_init(fP, fP / 30.0, 0.0, -2 * VELOCITY_AVG, 2 * VELOCITY_AVG);
+	pid = pid_init(2 * fP, fP / 40.0, 0.0, -2 * VELOCITY_AVG, 2 * VELOCITY_AVG);
 }
 
 void velocityControl_task(void) {

@@ -4,7 +4,7 @@
 #include "util.h"
 
 /* Number of encoder steps to turn each time */
-#define CALIBRATE_STEPS 3
+#define CALIBRATE_STEPS 5
 
 /* PWM duty cycle for each motor */
 #define CALIBRATE_LEFT_PWM 800
