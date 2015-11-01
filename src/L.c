@@ -9,6 +9,7 @@
 #include "task/position.h"
 #include "task/pwmControl.h"
 #include "task/velocityControl.h"
+#include "task/minPwm.h"
 
 /*
  * GLOBALS
@@ -122,7 +123,8 @@ void main(void) {
 	pwm_init();
 
 	/* Start-up Tasks */
-	calibrate_run();
+	calibrate_runMock();
+	minPwm_run();
 
 	/* Tasks initialization */
 	pwmControl_init();

@@ -1,0 +1,5 @@
+			fora do chão	no chão
+esquerdo estático	695		703
+esquerdo dinâmico	623		651
+direito  estático	511		735
+direito  dinâmico	632		612
