@@ -4,7 +4,7 @@ I-Logix-RPY-Archive version 8.5.2 Modeler * 1159120
 		- size = 0;
 	}
 	- myViewsWithID = { IRPYRawContainer 
-		- size = 4;
+		- size = 3;
 		- value = 
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -29,10 +29,10 @@ I-Logix-RPY-Archive version 8.5.2 Modeler * 1159120
 				- _name = "Diagrama de Pacotes";
 				- _id = GUID 8275f54a-8c8b-48f5-b7d4-66afd5827e9f;
 			}
-			- _UpLeft = 0 0 ;
-			- _DownRight = 515 263 ;
+			- _UpLeft = 0 25 ;
+			- _DownRight = 1192 634 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 1;
+			- m_nDiagramIndex = 0;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -57,10 +57,10 @@ I-Logix-RPY-Archive version 8.5.2 Modeler * 1159120
 				- _name = "Diagrama de Requisitos";
 				- _id = GUID da1307e5-60c9-4a8f-aeb8-e22cf2e3bb6c;
 			}
-			- _UpLeft = 0 60 ;
-			- _DownRight = 494 280 ;
+			- _UpLeft = 0 0 ;
+			- _DownRight = 826 368 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 3;
+			- m_nDiagramIndex = 2;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -85,41 +85,13 @@ I-Logix-RPY-Archive version 8.5.2 Modeler * 1159120
 				- _name = "Diagrama de defini\ç\ão de blocos";
 				- _id = GUID 62f562ae-a76e-4711-b5ac-2d722bfe4dda;
 			}
-			- _UpLeft = 0 10 ;
-			- _DownRight = 1516 912 ;
+			- _UpLeft = 0 110 ;
+			- _DownRight = 1102 862 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 2;
-		}
-		{ CGEMdiDiagramParams 
-			- _placement = { CCommon_WINDOWPLACEMENT 
-				- m_nLength = 44;
-				- m_nFlags = 0;
-				- m_showCmd = 1;
-				- m_ptMinPositionX = -1;
-				- m_ptMinPositionY = -1;
-				- m_ptMaxPositionX = -8;
-				- m_ptMaxPositionY = -31;
-				- m_nLeft = 104;
-				- m_nTop = 104;
-				- m_nRight = 1261;
-				- m_nBottom = 696;
-			}
-			- _wasOpenedOnCloseProject = 1;
-			- _theDiagram = { IHandle 
-				- _m2Class = "IActivityDiagram";
-				- _filename = "Main.sbs";
-				- _subsystem = "Main";
-				- _class = "Main";
-				- _name = "ActivityDiagram";
-				- _id = GUID 8dd2ec79-b3a8-45cf-b96c-13e9f064feb9;
-			}
-			- _UpLeft = 0 0 ;
-			- _DownRight = 1120 532 ;
-			- _instanceName = "";
-			- m_nDiagramIndex = 0;
+			- m_nDiagramIndex = 1;
 		}
 	}
-	- _fullName = "C:\\Users\\ES770A\\Documents\\GitHub\\L\\Modelo\\L";
+	- _fullName = "C:\\Users\\Rodolfo\\Documents\\GitHub\\L\\Modelo\\L";
 	- m_SearchScopeList = { IRPYRawContainer 
 		- size = 0;
 	}

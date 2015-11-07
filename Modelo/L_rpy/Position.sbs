@@ -1,0 +1,85 @@
+I-Logix-RPY-Archive version 8.5.2 Modeler C++ 1159120
+{ ISubsystem 
+	- _id = GUID b6b8f617-3b56-4215-899e-c50d2b4cdf54;
+	- _myState = 8192;
+	- _name = "Position";
+	- _objectCreation = "24315874920150-16111124";
+	- _umlDependencyID = "2377";
+	- _lastID = 1;
+	- weakCGTime = 11.7.2015::2:1:27;
+	- strongCGTime = 11.7.2015::2:1:19;
+	- _defaultComposite = GUID 38cc87ac-4431-4fce-985a-d1d950bfdd28;
+	- _eventsBaseID = -1;
+	- Classes = { IRPYRawContainer 
+		- size = 2;
+		- value = 
+		{ IClass 
+			- _id = GUID 38cc87ac-4431-4fce-985a-d1d950bfdd28;
+			- _myState = 40960;
+			- _name = "TopLevel";
+			- _objectCreation = "24316074920150-16131124";
+			- _umlDependencyID = "2330";
+			- weakCGTime = 12.31.1969::22:0:0;
+			- strongCGTime = 12.31.1969::22:0:0;
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+		{ IClass 
+			- _id = GUID dea1284b-4adc-4f64-8f80-6e4e6dcda9d9;
+			- _myState = 8192;
+			- _name = "Position";
+			- _objectCreation = "24316274920150-16151124";
+			- _umlDependencyID = "2376";
+			- _theMainDiagram = { IHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "";
+				- _subsystem = "";
+				- _class = "";
+				- _name = "Diagrama de defini\ç\ão de blocos";
+				- _id = GUID 62f562ae-a76e-4711-b5ac-2d722bfe4dda;
+			}
+			- _lastID = 1;
+			- weakCGTime = 11.7.2015::2:2:11;
+			- strongCGTime = 11.7.2015::2:1:33;
+			- Operations = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IPrimitiveOperation 
+					- _id = GUID 7450d44c-0869-476d-a1a7-d8901743218f;
+					- _myState = 8192;
+					- _name = "position_task";
+					- _objectCreation = "24316474920150-16171124";
+					- _umlDependencyID = "2942";
+					- _virtual = 0;
+					- Args = { IRPYRawContainer 
+						- size = 0;
+					}
+					- _returnType = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "PredefinedTypesC++.sbs";
+						- _subsystem = "PredefinedTypesCpp";
+						- _class = "";
+						- _name = "void";
+						- _id = GUID c6b70728-b655-45a0-abb7-8ea5d3da94be;
+					}
+					- _abstract = 0;
+					- _final = 0;
+					- _concurrency = Sequential;
+					- _protection = iPublic;
+					- _static = 0;
+					- _constant = 0;
+				}
+			}
+			- _multiplicity = "";
+			- _itsStateChart = { IHandle 
+				- _m2Class = "";
+			}
+			- _classModifier = Unspecified;
+		}
+	}
+	- _configurationRelatedTime = 12.31.1969::22:0:0;
+}
+
