@@ -8,8 +8,7 @@ PID pid_init(float fP, float fI, float fD, float fMinU, float fMaxU) {
 		0,
 		0,
 		fMinU,
-		fMaxU,
-		(fMaxU - fMinU)/fI
+		fMaxU
 	};
 	return pid;
 }
@@ -20,11 +19,6 @@ float pid_update(PID *pid, float fRef, float fSensorValue) {
 	/* Update the PID state */
 	fError = fRef - fSensorValue;
 	fErrorSum = (pid->fErrorSum += fError);
-/*	if (fErrorSum > pid->fMaxAbsErrorSum) {
-		fErrorSum = pid->fErrorSum = pid->fMaxAbsErrorSum;
-	} else if (fErrorSum < -pid->fMaxAbsErrorSum) {
-		fErrorSum = pid->fErrorSum = -pid->fMaxAbsErrorSum;
-	}*/
 	fDiff = fSensorValue - pid->fLast;
 	pid->fLast = fSensorValue;
 	

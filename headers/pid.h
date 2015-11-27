@@ -7,7 +7,6 @@ typedef struct PID {
 	float fLast;
 	float fMinU;
 	float fMaxU;
-	float fMaxAbsErrorSum;
 } PID;
 
 /* Create a PID instance using MinU and MaxU as saturation limits */
